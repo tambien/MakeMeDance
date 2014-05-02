@@ -1,0 +1,64 @@
+#Container {
+	position: absolute;
+	-webkit-transform : translate(-50%, -50%);
+	transform : translate(-50%, -50%);
+	background-color: $black;
+	border-radius: $border-radius;
+	width: 400px;
+	height: 80px;
+	border: 7px solid rgba(0, 0, 0, 0.35);
+	overflow: hidden;
+
+	left: 50%;
+	top: calc(50% + #{$TopBarHeight / 2});
+
+	$transitionTime: .5s;
+	-webkit-transition : width $transitionTime, height $transitionTime;
+
+	/** 
+	for a transparent border
+	http://css-tricks.com/transparent-borders-with-background-clip/
+	*/
+	-moz-background-clip: border;     /* Firefox 3.6 */
+	-webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+	background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+				
+	-moz-background-clip: padding;     /* Firefox 3.6 */
+	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+	background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+				
+	-moz-background-clip: content;     /* Firefox 3.6 */
+	-webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+	background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+
+a {
+	text-decoration: none;
+	color: $green;
+}
+
+a:visited {
+	text-decoration: none;
+	color: $green;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+
+#Container.Loading {
+	width: 400px;
+	height: 80px;
+}
+
+#Loading {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 20%;
+	background-color: $green;
+}

@@ -1,0 +1,443 @@
+.Button {
+  width: 300px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 8px;
+  background: #83bc3b;
+  border: 1px solid #aaaaaa;
+  cursor: pointer; }
+
+.Button:active {
+  color: #83bc3b;
+  background: white;
+  border-color: black; }
+
+.Screen {
+  opacity: 0; }
+
+#TopBar {
+  position: fixed;
+  height: 70px;
+  width: 100%;
+  background-color: black; }
+
+#TopBar #Logo {
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  background: url("../images/logo.png");
+  background-size: auto 60%;
+  width: 400px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#TopBar #Spotify {
+  background: url("../images/spotify-logo.jpg");
+  position: absolute;
+  right: 50px;
+  top: 0px;
+  background-size: auto 60%;
+  width: 200px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+#Container {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 10px;
+  width: 400px;
+  height: 80px;
+  border: 7px solid rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  left: 50%;
+  top: calc(50% + 35px);
+  -webkit-transition: width 0.5s, height 0.5s;
+  /** 
+  for a transparent border
+  http://css-tricks.com/transparent-borders-with-background-clip/
+  */
+  -moz-background-clip: border;
+  /* Firefox 3.6 */
+  -webkit-background-clip: border;
+  /* Safari 4? Chrome 6? */
+  background-clip: border-box;
+  /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  -moz-background-clip: padding;
+  /* Firefox 3.6 */
+  -webkit-background-clip: padding;
+  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;
+  /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  -moz-background-clip: content;
+  /* Firefox 3.6 */
+  -webkit-background-clip: content;
+  /* Safari 4? Chrome 6? */
+  background-clip: content-box;
+  /* Firefox 4, Safari 5, Opera 10, IE 9 */ }
+
+a {
+  text-decoration: none;
+  color: #83bc3b; }
+
+a:visited {
+  text-decoration: none;
+  color: #83bc3b; }
+
+a:hover {
+  text-decoration: none;
+  color: white; }
+
+#Container.Loading {
+  width: 400px;
+  height: 80px; }
+
+#Loading {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 20%;
+  background-color: #83bc3b; }
+
+#Container.Launch {
+  width: 360px;
+  height: 300px; }
+
+#Container.Launch #Launch {
+  -webkit-transition: opacity .4s; }
+
+#Launch {
+  width: 360px;
+  height: 300px;
+  color: white;
+  opacity: 0; }
+
+#Launch #Text {
+  text-align: center;
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 36px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: 100%;
+  height: 40px; }
+
+#Launch #SubText {
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  top: 60px;
+  width: 100%;
+  height: 40px;
+  font-size: 12px; }
+
+#Launch #DontHave {
+  position: absolute;
+  left: 10%;
+  bottom: 10px;
+  width: 80%;
+  height: 40px;
+  text-align: center; }
+
+#Launch .Button {
+  -webkit-transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute; }
+
+#Container.Dancing {
+  width: 1000px;
+  height: 650px; }
+
+#Dancing {
+  width: 1000px;
+  height: 650px;
+  opacity: 0; }
+
+#Dancing #DanceArena {
+  height: 100%;
+  width: 600px;
+  background-color: #232428;
+  position: absolute;
+  left: 0px;
+  top: 0px; }
+
+#Dancing #SongPanel {
+  width: 400px;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  right: 0px;
+  top: 0px; }
+
+/*=============================================================================
+	SongSelection
+=============================================================================*/
+#SongPanel #SongSelection {
+  height: 270px;
+  position: relative;
+  background-color: black;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: calc(100% - 20px * 2); }
+
+#SongPanel #SongSelection #Scroller {
+  top: 70px; }
+
+#SongPanel #SongSelection .Tab {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px; }
+
+#SongPanel #SongSelection #Title {
+  width: calc(100% / 3);
+  height: 35px;
+  line-height: 35px;
+  position: absolute;
+  top: 0px;
+  background-color: black;
+  border-bottom: 1px solid #aaaaaa;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+  z-index: 10;
+  cursor: pointer; }
+
+#SongPanel #SongSelection #Title:active {
+  background-color: #aaaaaa;
+  color: black; }
+
+#SongPanel #SongSelection .Selected #Title {
+  color: #83bc3b;
+  background-color: #232428; }
+
+#SongPanel #SongSelection #Instructions {
+  width: 100%;
+  position: absolute;
+  top: 35px;
+  left: 0px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #aaaaaa; }
+
+#SongPanel #SongSelection .Selected #Scroller {
+  z-index: 1; }
+
+#SongPanel #SongSelection #Songs .Song:hover {
+  background-color: #232428; }
+
+#SongPanel #SongSelection #Songs .Song:active:hover {
+  background-color: #aaaaaa;
+  color: black; }
+
+#SongPanel #SongSelection #HipHop #Title {
+  left: calc(100% / 3); }
+
+#SongPanel #SongSelection #Pop #Title {
+  left: 0px; }
+
+#SongPanel #SongSelection #EDM #Title {
+  left: calc(200% / 3); }
+
+/*=============================================================================
+	SHARED PLAYLIST + SONG SELECTION
+=============================================================================*/
+#SongPanel #Scroller {
+  width: 100%;
+  position: absolute;
+  line-height: 35px;
+  left: 0px;
+  overflow-y: scroll;
+  height: calc(100% - 35px * 2);
+  background-color: black;
+  z-index: 0; }
+
+#SongPanel #Songs {
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  color: white; }
+
+#SongPanel #Songs #Track {
+  width: auto;
+  height: 100%;
+  margin-left: 10px;
+  display: inline-block;
+  font-weight: 300; }
+
+#SongPanel #Songs #Artist {
+  width: auto;
+  display: inline-block;
+  height: 100%;
+  margin-left: 0px;
+  margin-right: 10px; }
+
+#SongPanel #Songs .Song {
+  position: relative;
+  height: 35px;
+  border-bottom: 1px solid #aaaaaa;
+  width: 100%;
+  cursor: pointer; }
+
+#SongPanel #Scroller::-webkit-scrollbar {
+  width: 12px; }
+
+#SongPanel #Scroller::-webkit-scrollbar-track {
+  background-color: #232428; }
+
+#SongPanel #Scroller::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  width: 10px;
+  background-color: #83bc3b; }
+
+/*=============================================================================
+	PLAYLIST
+=============================================================================*/
+#SongPanel #Playlist {
+  height: 144px;
+  position: relative;
+  background-color: black;
+  margin-top: 40px;
+  margin-left: 20px;
+  width: calc(100% - 20px * 2); }
+
+#SongPanel #Playlist #Scroller {
+  top: 35px;
+  height: calc(100% - 35px); }
+
+#SongPanel #Playlist #Title {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #aaaaaa; }
+
+#SongPanel #Playlist #Songs .Song {
+  pointer-events: none; }
+
+#SongPanel #Playlist .Song.Odd {
+  color: #e50036; }
+
+#SongPanel #Playlist .Song.Even {
+  color: #5facc5; }
+
+/*=============================================================================
+	SPOTIFY PLAYER
+=============================================================================*/
+#SpotifyPlayer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  border-radius: 5px;
+  text-align: center; }
+
+#SpotifyPlayer #Blocker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  line-height: 80px;
+  width: 100%;
+  text-align: center;
+  color: #aaaaaa; }
+
+/*=============================================================================
+	THUMBS UP/DOWN
+=============================================================================*/
+#Thumbs {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 128px;
+  height: 80px;
+  background-color: #83bc3b;
+  border-radius: 5px; }
+
+#Container.Selection {
+  width: 800px;
+  height: 400px; }
+
+#Selection {
+  opacity: 0;
+  width: 800px;
+  height: 400px; }
+
+#Selection #Title {
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 36px;
+  color: white;
+  line-height: 70px; }
+
+#Selection #Avatars {
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  height: 330px; }
+
+#Selection #Avatars .Avatar {
+  position: relative;
+  float: left;
+  width: calc(100%/3);
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  cursor: pointer; }
+
+#Selection #Avatars .Avatar.Gray {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  pointer-events: none; }
+
+#Selection #Avatars .Avatar .Selected {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 7px solid #83bc3b;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 0; }
+
+#Selection #Avatars .Avatar .Selected:active {
+  opacity: 1; }
+
+#Selection #Avatars #A {
+  background-image: url("../images/A.png"); }
+
+#Selection #Avatars #B {
+  background-image: url("../images/B.png"); }
+
+#Selection #Avatars #C {
+  background-image: url("../images/C.png"); }
+
+body {
+  margin: 0px;
+  font-family: "Muli", sans-serif;
+  background-image: url("../images/background.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
+#Fragments {
+  display: none; }

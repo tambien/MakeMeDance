@@ -1,0 +1,34 @@
+$TopBarHeight : 70px;
+
+#TopBar {
+	position: fixed;
+	height: 70px;
+	width: 100%;
+	background-color: $black;
+}
+
+$TopBarLogoMargin: 50px;
+
+#TopBar #Logo {
+	position: absolute;
+	left: $TopBarLogoMargin;
+	top: 0px;
+	background: url("../images/logo.png");
+	background-size: auto 60%;
+	width: 400px;
+	height: $TopBarHeight;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#TopBar #Spotify {
+	background: url("../images/spotify-logo.jpg");
+	position: absolute;
+	right: $TopBarLogoMargin;
+	top: 0px;
+	background-size: auto 60%;
+	width: 200px;
+	height: $TopBarHeight;
+	background-repeat: no-repeat;
+	background-position: center;
+}

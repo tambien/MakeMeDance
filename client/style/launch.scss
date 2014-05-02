@@ -1,0 +1,54 @@
+
+$LaunchScreenWidth : 360px;
+$LaunchScreenHeight : 300px;
+
+#Container.Launch {
+	width: $LaunchScreenWidth;
+	height: $LaunchScreenHeight;
+}
+
+#Container.Launch #Launch{
+	-webkit-transition: opacity .4s;
+}
+
+#Launch {
+	width: $LaunchScreenWidth;
+	height: $LaunchScreenHeight;
+	color: white;
+	opacity: 0;
+}
+
+#Launch #Text {
+	@include TitleText;
+	position: absolute;
+	left: 0px;
+	top: 20px;
+	width: 100%;
+	height: 40px;
+}
+
+#Launch #SubText {
+	position: absolute;
+	left: 0px;
+	text-align: center;
+	top: 60px;
+	width: 100%;
+	height: 40px;	
+	font-size: 12px;
+}
+
+#Launch #DontHave {
+	position: absolute;
+	left: 10%;
+	bottom: 10px;
+	width: 80%;
+	height: 40px;
+	text-align: center;
+}
+
+#Launch .Button {
+	-webkit-transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}

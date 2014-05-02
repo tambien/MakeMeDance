@@ -1,0 +1,18 @@
+@import "common.scss";
+@import "topbar.scss";
+@import "container.scss";
+@import "launch.scss";
+@import "dancing.scss";
+@import "selection.scss";
+
+body {
+	margin: 0px;
+	font-family: $font-family;
+	background-image: url("../images/background.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#Fragments {
+	display: none;
+}

@@ -1,0 +1,41 @@
+$font-family: 'Muli', sans-serif;
+$border-radius: 10px;
+
+$black : black;
+$green : rgb(131, 188, 59);
+$white : white;
+$gray : rgb(35, 36, 40);
+$lightgray : #aaa;
+$red : rgb(229, 0, 54);
+$blue : rgb(95, 172, 197);
+
+.Button {
+	width: 300px;
+	height: 50px;
+	color: $white;
+	font-size: 20px;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 8px;
+	background: $green;
+	border: 1px solid $lightgray;
+	cursor: pointer;
+}
+
+.Button:active{
+	color: $green;
+	background: $white;
+	border-color: $black;
+}
+
+@mixin TitleText {
+	text-align: center;
+	font-family: $font-family;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 36px;
+}
+
+.Screen {
+	opacity: 0;
+}

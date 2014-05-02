@@ -1,0 +1,74 @@
+$SelectionWidth : 800px;
+$SelectionHeight : 400px;
+
+#Container.Selection {
+	width: $SelectionWidth;
+	height: $SelectionHeight;
+}
+
+#Selection {
+	opacity: 0;
+	width: $SelectionWidth;
+	height: $SelectionHeight;
+}
+
+$SelectionTitleHeight : 70px;
+
+#Selection #Title {
+	height: $SelectionTitleHeight;
+	width: 100%;
+	position: absolute;
+	@include TitleText;
+	color: $white;
+	line-height: $SelectionTitleHeight;
+}
+
+#Selection #Avatars {
+	position: absolute;
+	top: 70px;
+	width: 100%;
+	height: $SelectionHeight - $SelectionTitleHeight;
+}
+
+#Selection #Avatars .Avatar {
+	position: relative;
+	float: left;
+	width: calc(100%/3);
+	height: 100%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#Selection #Avatars .Avatar.Gray {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	pointer-events: none;
+}
+
+#Selection #Avatars .Avatar .Selected {
+	-webkit-box-sizing: border-box; box-sizing: border-box;
+	border: 7px solid $green;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	opacity: 0;
+}
+
+#Selection #Avatars .Avatar .Selected:active {
+	opacity: 1;
+}
+
+
+
+#Selection #Avatars #A {
+	background-image: url("../images/A.png");
+}
+
+#Selection #Avatars #B {
+	background-image: url("../images/B.png");
+}
+
+#Selection #Avatars #C {
+	background-image: url("../images/C.png");
+}

@@ -1,0 +1,271 @@
+$DancingHeight : 650px;
+$DancingWidth : 1000px;
+
+#Container.Dancing {
+	width: $DancingWidth;
+	height: $DancingHeight;
+}
+
+#Dancing {
+	width: $DancingWidth;
+	height: $DancingHeight;
+	opacity: 0;
+}
+
+$SongPanelWidth : 400px;
+
+#Dancing #DanceArena {
+	height: 100%;
+	width: $DancingWidth - $SongPanelWidth;
+	background-color: $gray;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#Dancing #SongPanel {
+	width: $SongPanelWidth;
+	height: 100%;
+	background-color: $black;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+/*=============================================================================
+	SongSelection
+=============================================================================*/
+
+$DancingScreenMargin : 20px;
+
+#SongPanel #SongSelection {
+	height: 270px;
+	position: relative;
+	background-color: $black;
+	margin-top: $DancingScreenMargin;
+	margin-left: $DancingScreenMargin;
+	width: calc(100% - #{$DancingScreenMargin} * 2);
+}
+
+$TabTitleHeight : 35px;
+
+#SongPanel #SongSelection #Scroller{
+	top: $TabTitleHeight*2;
+}
+
+#SongPanel #SongSelection .Tab{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+
+#SongPanel #SongSelection #Title{
+	width: calc(100% / 3);
+	height: $TabTitleHeight;
+	line-height: $TabTitleHeight;
+	position: absolute;
+	top: 0px;
+	background-color: $black;
+	border-bottom: 1px solid $lightgray;
+	color: $white;
+	font-size: 15px;
+	font-weight: 300;
+	text-align: center;
+	z-index: 10;
+	cursor: pointer;
+}
+
+#SongPanel #SongSelection #Title:active{
+	background-color: $lightgray;
+	color: $black;
+}
+
+#SongPanel #SongSelection .Selected #Title{
+	color: $green;
+	background-color: $gray;
+}
+
+#SongPanel #SongSelection #Instructions{
+	width: 100%;
+	position: absolute;
+	top: $TabTitleHeight;
+	left: 0px;
+	height: $TabTitleHeight;
+	line-height: $TabTitleHeight;
+	text-align: center;
+	color: $lightgray;
+}
+
+#SongPanel #SongSelection .Selected #Scroller{
+	z-index: 1;
+}
+
+
+#SongPanel #SongSelection #Songs .Song:hover{
+	background-color: $gray;
+}
+
+#SongPanel #SongSelection #Songs .Song:active:hover{
+	background-color: $lightgray;
+	color: $black;
+}
+
+#SongPanel #SongSelection #HipHop #Title{
+	left: calc(100% / 3)
+}
+
+#SongPanel #SongSelection #Pop #Title{
+	left: 0px;
+}
+
+#SongPanel #SongSelection #EDM #Title{
+	left: calc(200% / 3)
+}
+
+
+/*=============================================================================
+	SHARED PLAYLIST + SONG SELECTION
+=============================================================================*/
+
+#SongPanel #Scroller{
+	width: 100%;
+	position: absolute;
+	line-height: $TabTitleHeight;
+	left: 0px;
+	overflow-y: scroll;
+	height: calc(100% - #{$TabTitleHeight} * 2);
+	background-color: $black;
+	z-index: 0;
+}
+
+#SongPanel #Songs{
+	position: relative;
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+	color: $white;
+}
+
+#SongPanel #Songs #Track{
+	width: auto;
+	height: 100%;
+	margin-left: 10px;
+	display: inline-block;
+	font-weight: 300;
+}
+
+#SongPanel #Songs #Artist{
+	width: auto;
+	display: inline-block;
+	height: 100%;
+	margin-left: 0px;
+	margin-right: 10px;
+}
+
+#SongPanel #Songs .Song{
+	position: relative;
+	height: $TabTitleHeight;
+	border-bottom: 1px solid $lightgray;
+	width: 100%;
+	cursor: pointer;
+}
+
+#SongPanel #Scroller::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+#SongPanel #Scroller::-webkit-scrollbar-track {
+    background-color: $gray;
+}
+ 
+#SongPanel #Scroller::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    width: 10px;
+    background-color: $green;
+}
+
+/*=============================================================================
+	PLAYLIST
+=============================================================================*/
+
+#SongPanel #Playlist {
+	height: $TabTitleHeight * 4 + 4px;
+	position: relative;
+	background-color: $black;
+	margin-top: $DancingScreenMargin * 2;
+	margin-left: $DancingScreenMargin;
+	width: calc(100% - #{$DancingScreenMargin} * 2);
+}
+
+#SongPanel #Playlist #Scroller{
+	top: $TabTitleHeight;
+	height: calc(100% - #{$TabTitleHeight});
+}
+
+#SongPanel #Playlist #Title{
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: $TabTitleHeight;
+	line-height: $TabTitleHeight;
+	text-align: center;
+	color: $lightgray;
+}
+
+#SongPanel #Playlist #Songs .Song{
+	pointer-events: none;
+}
+
+#SongPanel #Playlist .Song.Odd{
+	color: $red;
+}
+
+#SongPanel #Playlist .Song.Even{
+	color: $blue;
+}
+
+/*=============================================================================
+	SPOTIFY PLAYER
+=============================================================================*/
+
+#SpotifyPlayer {
+	position: absolute;
+	bottom: $DancingScreenMargin;
+	right: $DancingScreenMargin;
+	background-color: $black;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#SpotifyPlayer #Blocker{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	line-height: 80px;
+	width: 100%;
+	text-align: center;
+	color: $lightgray;
+}
+
+
+/*=============================================================================
+	THUMBS UP/DOWN
+=============================================================================*/
+
+$ThumbWidth : 64px;
+$ThumbHeight : 80px;
+
+#Thumbs{
+	position: absolute;
+	left: $DancingScreenMargin;
+	bottom: $DancingScreenMargin;
+	width: $ThumbWidth * 2;
+	height: $ThumbHeight; 
+	background-color: $green;
+	border-radius: 5px;
+}
+

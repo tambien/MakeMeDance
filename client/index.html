@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>MAKE ME DANCE</title>
+	<!-- 
+
+		WEBSITE BY YOTAM MANN
+
+		http://yotammann.info
+
+	 -->
+	 <link href='http://fonts.googleapis.com/css?family=Muli:300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./style/main.css">
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="./scripts/deps/jquery.spritely.js"></script>
+
+	<!-- LAUNCH THE APP -->
+	<script data-main="./scripts/app/MakeMeDance" type="text/javascript" src='./scripts/deps/require.js'></script>
+
+</head>
+<body>
+	<!-- TOP BAR-->
+	<div id="TopBar">
+		<div id="Logo"></div>	
+		<div id="Spotify"></div>	
+	</div>
+
+	<!-- CONTENT CONTAINER -->
+	<div id='Container'>
+		here's some stuff
+	</div>
+
+	<!-- ALL OF THE DOCUMENT ELEMENTS BEFORE THEY'RE PLACED ON THE SCREEN -->
+	<div id='Fragments'>
+
+		<!-- LAUNCH -->
+		<div id='Launch'>
+			<div id='Text'>
+				LAUNCH SPOTIFY
+			</div>
+			<div id='SubText'>
+				Click START after it's open
+			</div>
+
+			<div id='DontHave'>
+				Don't have Spotify?
+				<a href="https://www.spotify.com/download/">Download it</a>
+			</div>
+			<div class='Button'>
+				START
+			</div>
+		</div>
+
+		<!-- LOADING -->
+		<div id='Loading'></div>
+
+		<!-- SELECTION -->
+		<div id='Selection'>
+			<div id="Title">CHOOSE YOUR AVATAR</div>
+			<div id="Avatars"></div>
+		</div>
+
+		<!-- DANCING -->
+		<div id='Dancing'>
+			<!-- DANCING PANEL -->
+			<div id='DanceArena'>
+				<!-- PLAYER -->
+				<div id='SpotifyPlayer'>
+					<iframe src="" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+					<div id='Blocker'>Waiting for Selection</div>
+				</div>
+				<!-- THUMBS -->
+				<div id='Thumbs'></div>
+			</div>
+
+			
+			<!-- SONG PANEL -->
+			<div id='SongPanel'>
+				<!-- SONG SELECTIONS -->
+				<div id='SongSelection'>
+					<div id='Instructions'>CHOOSE FROM THE FOLLOWING:</div>
+					<div id='HipHop' class="Tab">
+						<div id='Title'>Hip Hop</div>
+						<div id='Scroller'>
+							<div id='Songs'></div>
+						</div>
+					</div>
+					<div id='EDM' class="Tab">
+						<div id='Title'>EDM</div>
+						<div id='Scroller'>
+							<div id='Songs'></div>
+						</div>
+					</div>
+					<div id='Pop' class="Tab">
+						<div id='Title'>Pop</div>
+						<div id='Scroller'>
+							<div id='Songs'></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- COLLABORATIVE PLAYLIST -->
+				<div id='Playlist'>
+					<div id='Title'>YOUR COLLABORATIVE PLAYLIST:</div>
+					<div id='Scroller'>
+						<div id='Songs'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
