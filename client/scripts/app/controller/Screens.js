@@ -1,4 +1,4 @@
-define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancing", "screen/Selection"], function(Mediator){
+define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancing", "screen/Selection", "screen/Compatible", "screen/Incompatible"], function(Mediator){
 
 	var container = $("#Container");
 
@@ -20,6 +20,14 @@ define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancin
 	Mediator.route("screen/Selection/chosen", function(){
 		//go to the dance screen
 		transition("Selection", "Dancing");
+	});
+
+	Mediator.route("dancing/over", function(compatible){
+		if (compatible){
+			transition("Dancing", "Compatible");
+		} else {
+			transition("Dancing", "Incompatible");
+		}
 	});
 
 	function transition(from, to){

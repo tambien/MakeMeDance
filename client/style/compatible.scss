@@ -1,0 +1,113 @@
+$CompScreenWidth : 800px;
+$CompScreenHeight : 500px;
+
+#Container.Compatible {
+	width: $CompScreenWidth;
+	height: $CompScreenHeight;
+}
+
+#Compatible {
+	width: $CompScreenWidth;
+	height: $CompScreenHeight;
+	background-color: $white;
+	opacity: 0;
+}
+
+#Compatible #Title {
+	position: absolute;
+	@include TitleText;
+	text-align: center;
+	color: $black;
+	left: 0px;
+	width: 100%;
+	top: 10px;
+}
+
+#Compatible #SubText {
+	font-size: 15px;
+	line-height: 16px;
+	text-align: center;
+	color: #999;
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	top: 50px;
+}
+
+#Compatible .Button {
+	position: absolute;
+	-webkit-transform: translate(-50%, 0%);
+	left: 50%;
+	bottom: 20px;
+}
+
+#Container.Compatible #Playlist {
+	width: 100%;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 0px;	
+	background-color: $black;
+}
+
+#Container.Compatible #Playlist #Scroller{
+	position: absolute;
+	width: 75%;
+	height: 100%;
+	left: 25%;	
+	top: 0px;
+}
+
+#Container.Compatible #Playlist #Scroller .Song{
+	pointer-events: none;
+}
+
+
+
+/*=============================================================================
+	INCOMPATIBLE
+=============================================================================*/
+
+$IncompScreenWidth : 360px;
+$IncompScreenHeight : 250px;
+
+#Container.Incompatible {
+	width: $IncompScreenWidth;
+	height: $IncompScreenHeight;
+	background-color: $white;
+}
+
+#Incompatible {
+	width: $IncompScreenWidth;
+	height: $IncompScreenHeight;
+	color: black;
+}
+
+#Incompatible #Title {
+	position: absolute;
+	@include TitleText;
+	text-align: center;
+	color: $black;
+	left: 0px;
+	width: 100%;
+	top: 10px;
+}
+
+#Incompatible #SubText {
+	font-size: 15px;
+	line-height: 16px;
+	text-align: center;
+	color: #999;
+	position: absolute;
+	left: 10%;
+	width: 80%;
+	top: 70px;
+	line-height: 20px;
+}
+
+#Incompatible .Button {
+	position: absolute;
+	-webkit-transform: translate(-50%, 0%);
+	left: 50%;
+	bottom: 10px;
+}

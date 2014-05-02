@@ -1,23 +1,28 @@
-define(["controller/Mediator", "dancing/SongSelection"], function(Mediator, SongSelection){
+define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 	
-	//AVATARS//
+	var player = new Player("you");
 
-	var avatar = null;
-
-	Mediator.route("player/you/avatar", function(av){
-		avatar = av;
-	});	
+	var songSelected = true;
 
 	function takeTurn(){
-		//wait for song selection and send that to partner
+		console.log("my turn");
+		songSelected = false;
+		player.blockSelection(false);
+		player.setText("You have ten seconds to choose a song!");
+
 	}
 
-	function pickRandomSong(){
-		
+	Mediator.route("dancing/Song/clicked", pickedSong);
+
+	Mediator.route("player/you/takeTurn", takeTurn);
+
+	function pickedSong(){
+		if (!songSelected){
+			songSelected = true;
+			player.blockSelection(true);
+			player.setText("Waiting for their vote");
+		}
 	}
 
 
-	return {
-		takeTurn : takeTurn
-	}
 });

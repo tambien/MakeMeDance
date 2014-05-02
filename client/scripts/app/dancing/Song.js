@@ -9,7 +9,7 @@ define(["controller/Mediator"], function(Mediator){
 		this.element = $("<div>", {"class" : "Song"}).appendTo(container);
 
 		if (thumbs){
-			this.element.append($("<span>", {"id" : "Thumbs", "class" : thumbs}));
+			this.element.append($("<span>", {"id" : "Thumb"}));
 		}
 		this.element.append($("<span>", {"id" : "Artist"}).html(description.number + ". "+ this.artist));
 		this.element.append($("<span>", {"id" : "Track"}).html(this.track));
@@ -18,6 +18,10 @@ define(["controller/Mediator"], function(Mediator){
 		this.element.click(function(){
 			Mediator.send("dancing/Song/clicked", description);
 		});
+	}
+
+	Song.prototype.setVote = function(vote){
+		this.element.addClass(vote);
 	}
 
 	return Song;

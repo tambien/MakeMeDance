@@ -255,7 +255,7 @@ a:hover {
 /*=============================================================================
 	SHARED PLAYLIST + SONG SELECTION
 =============================================================================*/
-#SongPanel #Scroller {
+#Scroller {
   width: 100%;
   position: absolute;
   line-height: 35px;
@@ -265,41 +265,41 @@ a:hover {
   background-color: black;
   z-index: 0; }
 
-#SongPanel #Songs {
+#Songs {
   position: relative;
   height: auto;
   width: 100%;
   overflow: hidden;
   color: white; }
 
-#SongPanel #Songs #Track {
+#Songs #Track {
   width: auto;
   height: 100%;
   margin-left: 10px;
   display: inline-block;
   font-weight: 300; }
 
-#SongPanel #Songs #Artist {
+#Songs #Artist {
   width: auto;
   display: inline-block;
   height: 100%;
   margin-left: 0px;
   margin-right: 10px; }
 
-#SongPanel #Songs .Song {
+#Songs .Song {
   position: relative;
   height: 35px;
   border-bottom: 1px solid #aaaaaa;
   width: 100%;
   cursor: pointer; }
 
-#SongPanel #Scroller::-webkit-scrollbar {
+#Scroller::-webkit-scrollbar {
   width: 12px; }
 
-#SongPanel #Scroller::-webkit-scrollbar-track {
+#Scroller::-webkit-scrollbar-track {
   background-color: #232428; }
 
-#SongPanel #Scroller::-webkit-scrollbar-thumb {
+#Scroller::-webkit-scrollbar-thumb {
   border-radius: 5px;
   width: 10px;
   background-color: #83bc3b; }
@@ -329,14 +329,35 @@ a:hover {
   text-align: center;
   color: #aaaaaa; }
 
+#SongPanel #Playlist .Song #Thumb {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px; }
+
 #SongPanel #Playlist #Songs .Song {
   pointer-events: none; }
 
-#SongPanel #Playlist .Song.Odd {
+#Playlist .Song.Odd {
   color: #e50036; }
 
-#SongPanel #Playlist .Song.Even {
+#Playlist .Song.Even {
   color: #5facc5; }
+
+#SongPanel #Playlist .Song.up #Thumb {
+  background: url("../images/Up_0.png");
+  background-size: 80% auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: white; }
+
+#SongPanel #Playlist .Song.down #Thumb {
+  background: url("../images/Down_0.png");
+  background-size: 80% auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: white; }
 
 /*=============================================================================
 	SPOTIFY PLAYER
@@ -347,7 +368,8 @@ a:hover {
   right: 20px;
   background-color: black;
   border-radius: 5px;
-  text-align: center; }
+  text-align: center;
+  z-index: 100; }
 
 #SpotifyPlayer #Blocker {
   position: absolute;
@@ -369,6 +391,75 @@ a:hover {
   height: 80px;
   background-color: #83bc3b;
   border-radius: 5px; }
+
+#Thumbs div {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  cursor: pointer; }
+
+#Thumbs div:active {
+  background-color: #232428; }
+
+#Thumbs #Up {
+  left: 0px;
+  background: url("../images/Up_0.png");
+  background-size: 80% auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; }
+
+#Thumbs #Down {
+  right: 0px;
+  background: url("../images/Down_0.png");
+  background-size: 80% auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; }
+
+/*=============================================================================
+	PLAYER TEXT
+=============================================================================*/
+#PlayerText {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  line-height: 650px;
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  pointer-events: none; }
+
+#PlayerText.Visible {
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  pointer-events: inherit; }
+
+#PlayerBlocker {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  pointer-events: none; }
+
+#PlayerBlocker.Visible {
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  pointer-events: inherit; }
 
 #Container.Selection {
   width: 800px;
@@ -431,6 +522,106 @@ a:hover {
 
 #Selection #Avatars #C {
   background-image: url("../images/C.png"); }
+
+#Container.Compatible {
+  width: 800px;
+  height: 500px; }
+
+#Compatible {
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  opacity: 0; }
+
+#Compatible #Title {
+  position: absolute;
+  text-align: center;
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 36px;
+  text-align: center;
+  color: black;
+  left: 0px;
+  width: 100%;
+  top: 10px; }
+
+#Compatible #SubText {
+  font-size: 15px;
+  line-height: 16px;
+  text-align: center;
+  color: #999;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 50px; }
+
+#Compatible .Button {
+  position: absolute;
+  -webkit-transform: translate(-50%, 0%);
+  left: 50%;
+  bottom: 20px; }
+
+#Container.Compatible #Playlist {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  background-color: black; }
+
+#Container.Compatible #Playlist #Scroller {
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  left: 25%;
+  top: 0px; }
+
+#Container.Compatible #Playlist #Scroller .Song {
+  pointer-events: none; }
+
+/*=============================================================================
+	INCOMPATIBLE
+=============================================================================*/
+#Container.Incompatible {
+  width: 360px;
+  height: 250px;
+  background-color: white; }
+
+#Incompatible {
+  width: 360px;
+  height: 250px;
+  color: black; }
+
+#Incompatible #Title {
+  position: absolute;
+  text-align: center;
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 36px;
+  text-align: center;
+  color: black;
+  left: 0px;
+  width: 100%;
+  top: 10px; }
+
+#Incompatible #SubText {
+  font-size: 15px;
+  line-height: 16px;
+  text-align: center;
+  color: #999;
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  top: 70px;
+  line-height: 20px; }
+
+#Incompatible .Button {
+  position: absolute;
+  -webkit-transform: translate(-50%, 0%);
+  left: 50%;
+  bottom: 10px; }
 
 body {
   margin: 0px;

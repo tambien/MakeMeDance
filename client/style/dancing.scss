@@ -130,7 +130,7 @@ $TabTitleHeight : 35px;
 	SHARED PLAYLIST + SONG SELECTION
 =============================================================================*/
 
-#SongPanel #Scroller{
+#Scroller{
 	width: 100%;
 	position: absolute;
 	line-height: $TabTitleHeight;
@@ -141,7 +141,7 @@ $TabTitleHeight : 35px;
 	z-index: 0;
 }
 
-#SongPanel #Songs{
+#Songs{
 	position: relative;
 	height: auto;
 	width: 100%;
@@ -149,7 +149,7 @@ $TabTitleHeight : 35px;
 	color: $white;
 }
 
-#SongPanel #Songs #Track{
+#Songs #Track{
 	width: auto;
 	height: 100%;
 	margin-left: 10px;
@@ -157,7 +157,7 @@ $TabTitleHeight : 35px;
 	font-weight: 300;
 }
 
-#SongPanel #Songs #Artist{
+#Songs #Artist{
 	width: auto;
 	display: inline-block;
 	height: 100%;
@@ -165,7 +165,7 @@ $TabTitleHeight : 35px;
 	margin-right: 10px;
 }
 
-#SongPanel #Songs .Song{
+#Songs .Song{
 	position: relative;
 	height: $TabTitleHeight;
 	border-bottom: 1px solid $lightgray;
@@ -173,15 +173,15 @@ $TabTitleHeight : 35px;
 	cursor: pointer;
 }
 
-#SongPanel #Scroller::-webkit-scrollbar {
+#Scroller::-webkit-scrollbar {
     width: 12px;
 }
  
-#SongPanel #Scroller::-webkit-scrollbar-track {
+#Scroller::-webkit-scrollbar-track {
     background-color: $gray;
 }
  
-#SongPanel #Scroller::-webkit-scrollbar-thumb {
+#Scroller::-webkit-scrollbar-thumb {
     border-radius: 5px;
     width: 10px;
     background-color: $green;
@@ -216,16 +216,40 @@ $TabTitleHeight : 35px;
 	color: $lightgray;
 }
 
+#SongPanel #Playlist .Song #Thumb{
+	width: 20px;
+	height: 20px;
+	position: relative;
+	display: inline-block;
+	margin-right: 10px;
+}
+
 #SongPanel #Playlist #Songs .Song{
 	pointer-events: none;
 }
 
-#SongPanel #Playlist .Song.Odd{
+#Playlist .Song.Odd{
 	color: $red;
 }
 
-#SongPanel #Playlist .Song.Even{
+#Playlist .Song.Even{
 	color: $blue;
+}
+
+#SongPanel #Playlist .Song.up #Thumb{
+	background: url("../images/Up_0.png");
+	background-size: 80% auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-color: $white;
+}
+
+#SongPanel #Playlist .Song.down #Thumb{
+	background: url("../images/Down_0.png");
+	background-size: 80% auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-color: $white;
 }
 
 /*=============================================================================
@@ -239,6 +263,7 @@ $TabTitleHeight : 35px;
 	background-color: $black;
 	border-radius: 5px;
 	text-align: center;
+	z-index: 100;
 }
 
 #SpotifyPlayer #Blocker{
@@ -269,3 +294,83 @@ $ThumbHeight : 80px;
 	border-radius: 5px;
 }
 
+#Thumbs div {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	cursor: pointer;
+}
+
+#Thumbs div:active {
+	background-color: $gray;
+}
+
+#Thumbs #Up {
+	left: 0px;
+	background: url("../images/Up_0.png");
+	background-size: 80% auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+#Thumbs #Down {
+	right: 0px;
+	background: url("../images/Down_0.png");
+	background-size: 80% auto;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+/*=============================================================================
+	PLAYER TEXT
+=============================================================================*/
+
+$BlockerBackground : rgba(0, 0, 0, .5);
+
+@mixin OpacityTransition {
+	-webkit-transition : opacity .3s;
+	transition : opacity .3s;
+}
+
+#PlayerText {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: $DancingHeight;
+	text-align: center;
+	color: $white;
+	background-color: $BlockerBackground;
+	font-size: 18px;
+	line-height: $DancingHeight;
+	z-index: 10;
+	opacity: 0;
+	@include OpacityTransition;
+	pointer-events: none;
+}
+
+#PlayerText.Visible {
+	opacity: 1;
+	@include OpacityTransition;
+	pointer-events: inherit;
+}
+
+#PlayerBlocker {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	background-color: $BlockerBackground;
+	opacity: 0;
+	@include OpacityTransition;
+	pointer-events: none;
+}
+
+#PlayerBlocker.Visible {
+	opacity: 1;
+	@include OpacityTransition;
+	pointer-events: inherit;
+}
