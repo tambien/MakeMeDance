@@ -19,9 +19,9 @@ define(["controller/Mediator"], function(Mediator){
 	var vote = 0;
 
 	function testVote(){
-		if (vote > 1){
+		if (vote > 2){
 			Mediator.send("dancing/over", true);
-		} else if (vote < -1){
+		} else if (vote < -2){
 			Mediator.send("dancing/over", false);
 		}
 	}
