@@ -90,7 +90,7 @@ $IncompScreenHeight : 250px;
 	color: $black;
 	left: 0px;
 	width: 100%;
-	top: 10px;
+	top: 20px;
 }
 
 #Incompatible #SubText {
@@ -101,7 +101,7 @@ $IncompScreenHeight : 250px;
 	position: absolute;
 	left: 10%;
 	width: 80%;
-	top: 70px;
+	top: 75px;
 	line-height: 20px;
 }
 
@@ -109,5 +109,5 @@ $IncompScreenHeight : 250px;
 	position: absolute;
 	-webkit-transform: translate(-50%, 0%);
 	left: 50%;
-	bottom: 10px;
+	bottom: 20px;
 }

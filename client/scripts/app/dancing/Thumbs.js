@@ -4,29 +4,28 @@ define(["controller/Mediator"], function(Mediator){
 	var up = container.find("#Up");
 
 	up.click(function(){
-		Mediator.send("dancing/voted", "up");
 		vote++;
-		testVote();
+		Mediator.send("dancing/voted", "up");
 	});
 
 	var down = container.find("#Down");
 
 	down.click(function(){
-		Mediator.send("dancing/voted", "down");
 		vote--;
-		testVote();
+		Mediator.send("dancing/voted", "down");
 	});
 
 
 	var vote = 0;
 
 	function testVote(){
-		if (vote > 0){
+		if (vote > 1){
 			Mediator.send("dancing/over", true);
-		} else if (vote < 0){
+		} else if (vote < -1){
 			Mediator.send("dancing/over", false);
 		}
 	}
 
+	Mediator.route("dancing/voted", testVote);
 
 })
