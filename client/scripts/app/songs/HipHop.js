@@ -23,7 +23,7 @@ define(function(){
 			bpm : 87.554
 		},{
 			artist : "Whodini",
-			track : "The Freaks Come Out At Night",
+			track : "The Freaks Come Out At Night, The Freaks Come Out At Night",
 			uri : "0jukQ0IIFn5LRBIAfFl28w",
 			bpm : 100.79
 		},{
