@@ -55,6 +55,66 @@ define(function(){
 			uri : "3FtYbEfBqAlGO46NUDQSAt",
 			bpm : 103.013
 		},
+		{
+			artist : "Katy Perry",
+			track : "Roar",
+			uri : "6F5c58TMEs1byxUstkzVeM",
+			bpm : 90
+		},
+		{
+			artist : "Pharell Williams",
+			track : "Happy",
+			uri : "6NPVjNh8Jhru9xOmyQigds",
+			bpm : 94.968
+		},
+		{
+			artist : "Calvin Harris",
+			track : "Summer",
+			uri : "7b71WsDLb8gG0cSyDTFAEW",
+			bpm : 127.948
+		},
+		{
+			artist : "Pitbull",
+			track : "Timber",
+			uri : "7b71WsDLb8gG0cSyDTFAEW",
+			bpm : 129.963
+		},
+		{
+			artist : "Tiesto",
+			track : "Red Lights",
+			uri : "6oP02i1hRc3Qp9bd36Ya3Z",
+			bpm : 124.995
+		},
+		{
+			artist : "Lorde",
+			track : "Royals",
+			uri : "2dLLR6qlu5UJ5gk0dKz0h3",
+			bpm : 84.981
+		},
+		{
+			artist : "Drake feat. Majid Jordan",
+			track : "Hold On, We're Going Home",
+			uri : "7nBFpFa8ZFMUqzwPmWaD6u",
+			bpm : 100.006
+		},
+		{
+			artist : "Rihanna feat Calvin Harris",
+			track : "We Found Love",
+			uri : "0U10zFw4GlBacOy9VDGfGL",
+			bpm : 127.969
+		},
+		{
+			artist : "Rihanna",
+			track : "Diamonds",
+			uri : "7Kt59L2ZZGtOnIhvMwzG6f",
+			bpm : 92.879
+		},
+		{
+			artist : "Daft Punk",
+			track : "Lose Yourself to Dance",
+			uri : "5CMjjywI0eZMixPeqNd75R",
+			bpm : 100.164
+		}
 	];
 
 	return PopSongs;
