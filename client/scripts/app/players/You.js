@@ -5,7 +5,6 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 	var songSelected = true;
 
 	function takeTurn(){
-		console.log("my turn");
 		songSelected = false;
 		player.blockSelection(false);
 		player.setText("You have ten seconds to choose a song!");

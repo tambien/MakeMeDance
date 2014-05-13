@@ -1,5 +1,5 @@
 $SelectionWidth : 800px;
-$SelectionHeight : 400px;
+$SelectionHeight : 430px;
 
 #Container.Selection {
 	width: $SelectionWidth;
@@ -23,11 +23,23 @@ $SelectionTitleHeight : 70px;
 	line-height: $SelectionTitleHeight;
 }
 
+#Selection #Count {
+	width: 200px;
+	position: absolute;
+	text-align: right;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	bottom: 0px;
+	right: 10px;
+	color: $white;
+}
+
 #Selection #Avatars {
 	position: absolute;
 	top: 70px;
 	width: 100%;
-	height: $SelectionHeight - $SelectionTitleHeight;
+	height: $SelectionHeight - $SelectionTitleHeight - 20px;
 }
 
 #Selection #Avatars .Avatar {

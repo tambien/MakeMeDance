@@ -37,6 +37,18 @@ define(["controller/Mediator", "screen/Screen", "screen/Avatar"], function(Media
 		}
 	}
 
+	Mediator.route("screen/Selection/display", function(){
+		//get the online player count
+		$.ajax({
+			url: window.location.origin + "/playercount",
+			type : "GET",
+			success: function(data){
+				selection.element.find("#Count").html(data.count + " USERS ONLINE");
+			},
+			dataType: "json"
+		});
+	});
+
 	//initialize
 	makeAvatars();
 })

@@ -3,12 +3,12 @@ define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancin
 	var container = $("#Container");
 
 	//start with the loading screen
-	Mediator.send("screen/Loading/display", container);
+	Mediator.send("screen/Launch/display", container);
 
 	//wait for everything to load
 	Mediator.route("allLoaded", function(){
 		//after it's loaded, go to the launch screen
-		transition("Loading", "Launch");
+		// transition("Loading", "Launch");
 	});
 
 	//when launch is clicked, go to the play screen	

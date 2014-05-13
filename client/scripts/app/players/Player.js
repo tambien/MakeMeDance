@@ -25,7 +25,7 @@ define(["controller/Mediator", "dancing/SongSelection"], function(Mediator, Song
 
 	Player.prototype.setText = function(text){
 		var dancingScreenText = $("#DanceArena #PlayerText");
-		dancingScreenText.html(text);
+		dancingScreenText.find("#Text").html(text);
 		dancingScreenText.addClass("Visible");
 	}
 

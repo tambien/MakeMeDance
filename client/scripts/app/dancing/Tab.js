@@ -1,6 +1,6 @@
 define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
-	var Tab = function(element, songsDescriptions){
+	var Tab = function(element, songsDescriptions, genre){
 
 		this.element = element;
 
@@ -12,6 +12,7 @@ define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
 		for (var i = 0; i < songsDescriptions.length;i++){
 			var desc = songsDescriptions[i];
+			desc.genre = genre;
 			desc.number = i+1;
 			var s = new Song(songContainer, desc);
 			this.songs.push(s);

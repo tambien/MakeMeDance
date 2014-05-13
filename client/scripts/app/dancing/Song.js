@@ -5,6 +5,7 @@ define(["controller/Mediator"], function(Mediator){
 		this.artist = description.artist;
 		this.uri = description.uri;
 		this.bpm = description.bpm;
+		this.genre = description.genre;
 
 		this.element = $("<div>", {"class" : "Song"}).appendTo(container);
 

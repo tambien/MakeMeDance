@@ -343,11 +343,24 @@ $BlockerBackground : rgba(0, 0, 0, .5);
 	color: $white;
 	background-color: $BlockerBackground;
 	font-size: 18px;
-	line-height: $DancingHeight;
 	z-index: 10;
 	opacity: 0;
 	@include OpacityTransition;
 	pointer-events: none;
+}
+
+#PlayerText #Text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 100px;
+	margin-left: -200px;
+	margin-top: -50px;
+	text-align: center;
+	color: $white;
+	font-size: 18px;
+	line-height: 40px;
 }
 
 #PlayerText.Visible {
@@ -373,4 +386,25 @@ $BlockerBackground : rgba(0, 0, 0, .5);
 	opacity: 1;
 	@include OpacityTransition;
 	pointer-events: inherit;
+}
+
+/*=============================================================================
+	VIDEO
+=============================================================================*/
+
+#VideoArena {
+	position: absolute;
+	top: $DancingScreenMargin;
+	left: $DancingScreenMargin;
+	width: calc(100% - #{$DancingScreenMargin} * 2);
+	height: calc(100% - #{$DancingScreenMargin} * 3 - #{$ThumbHeight});
+}
+
+#VideoArena  video{
+	background-color: $black;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 50%;
+	-webkit-transform: translate(0, -50%);
 }
