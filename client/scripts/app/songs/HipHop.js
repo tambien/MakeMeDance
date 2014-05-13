@@ -47,51 +47,75 @@ define(function(){
 			uri : "13KEdaWIc7T6ozEmnJjHy1",
 			bpm : 177.841
 		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
+			artist : "Dizzee Rascal",
+			track : "Fix Up, Look Sharp",
+			uri : "0gusqTJKxtU1UTmNRMHZcv",
+			bpm : 104.756
 		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
-		},{
-			artist : "Outkast",
-			track : "Hey ya",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
-			bpm : 120
+			artist : "Shabazz Palaces",
+			track : "An echo from the hosts that profess infinitum",
+			uri : "4gkxGrIuTzLykIq0aG5xUe",
+			bpm : 113.107/2
 		},
+		{
+			artist : "Snoop Dogg / Pharrell",
+			track : "Drop It Like It's Hot",
+			uri : "4Tyv7nnNTHC6mR1pTubIrw",
+			bpm : 92
+		},
+		{
+			artist: "Grandmaster Flash",
+			track: "The Message",
+			uri: "5g52MCuuPbV4vsKKMTZl0q",
+			bpm: 100
+		},
+		{
+			artist: "Salt-N-Pepa",
+			track: "Shoop",
+			uri: "2c7H254xlKoGhmZT194C0T",
+			bpm: 99.666
+		},
+		{
+			artist: "Missy Elliot",
+			track: "Work It",
+			uri: "2QKIr7iJ0E4fWn3mo8gAHG",
+			bpm: 102
+		},
+		{
+			artist: "T.I.",
+			track: "What You Know",
+			uri: "7KMNOUeX6xqasTJCfoOF2e",
+			bpm: 76.153
+		},
+		{
+			artist: "Rhianna & Jay Z",
+			track: "Umbrella",
+			uri: "0WFtqaRs96xkWWt8UD2dIR",
+			bpm: 174
+		},
+		{
+			artist: "Beastie Boys",
+			track: "Intergalactic",
+			uri: "5fpizYGbi5IQoEraj6FP0R",
+			bpm: 106
+		},
+		{
+			artist: "Cam'Ron",
+			track: "Get Down",
+			uri: "6nkgBdXkiWKxLQ9VOVVmEy",
+			bpm: 73.179
+		},{
+			artist: "Snap!",
+			track: "I've Got The Power",
+			uri: "",
+			bpm: 
+		},
+		{
+			artist: "Rob Base & DJ E-Z Rock",
+			track: "It Takes Two",
+			uri: "",
+			bpm: 
+		}
 	];
 
 	return HipHopSongs;

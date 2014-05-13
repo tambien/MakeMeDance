@@ -114,8 +114,170 @@ define(function(){
 			track : "Lose Yourself to Dance",
 			uri : "5CMjjywI0eZMixPeqNd75R",
 			bpm : 100.164
-		}
+		},
+		{
+			artist: "George McCrae",
+			track: "I Get Lifted",
+			uri : "6oV3BNm1Gj2GGgpYknc5TN",
+			bpm: 98.376
+		},
+		{
+			artist: "X-ecutioners",
+			track: "Genius Of Love 2002",
+			uri : "74WRHve8pGV0TlxM7GDYWU",
+			bpm: 102.641
+		},
+		{
+			artist: "Prince",
+			track: "When U Were Mine",
+			uri: "46wKrvbIRQXVbJQoGj7Aso",
+			bpm: 143.098
+		},
+		{
+			artist: "David Bowie",
+			track: "Rebel Rebel",
+			uri: "6LNwcU77wgVQ5PLSnrRwAN",
+			bpm: 126
+		},
+		{
+			artist: "Iggy Pop",
+			track: "Lust For Life",
+			uri: "7egQFB1zrDcvy3kdTaKbpc",
+			bpm: 126
+		},
+		{
+			artist: "Icona Pop",
+			track: "I Love It",
+			uri: "27ilMN1oiW9849fReEYgOj",
+			bpm: 126
+		},
+		{
+			artist: "Kylie Minogue",
+			track: "Can't Get You Out Of My Head",
+			uri: "7MoKXLQeI0Bh2QodCjDO4K",
+			bpm: 126
+		},
+		{
+			artist: "The Cardigans",
+			track: "Love Fool",
+			uri: "0u4htORODiTK9vHVA89MQX",
+			bpm: 111.79
+		},
+		{
+			artist: "Nicki Minaj",
+			track: "Pound The Alarm",
+			uri: "5kcE7pp02ezLZaUbbMv3Iq",
+			bpm: 125.05
+		},
+
+		{
+			artist: "Britney Spears",
+			track: "Toxic",
+			uri: "717TY4sfgKQm4kFbYQIzgo",
+			bpm: 143.025
+		},
+		{
+			artist: "Ke$ha",
+			track: "Die Young",
+			uri: "6mnjcTmK8TewHfyOp3fC9C",
+			bpm: 128
+		},
+		{
+			artist: "Foster The People",
+			track: "Pumped Up Kicks",
+			uri: "7w87IxuO7BDcJ3YUqCyMTT",
+			bpm: 128.171
+		},
+		{
+			artist: "Peter Bjorn & John",
+			track: "Young Folks",
+			uri: "6M6UoxIPn4NOWW0x7JPRfv",
+			bpm: 150.624
+		},
+		{
+			artist: "Miley Cyrus",
+			track: "Wrecking Ball",
+			uri: "3mRjerKQVtccyYnoCfWOS9",
+			bpm: 120
+		},
+		{
+			artist: "Corona",
+			track: "Rhythm of the Night",
+			uri: "5tlWNoL7eYeo9MRExryxEC",
+			bpm: 127.847
+		},
+		{
+			artist: "Katy Perry",
+			track: "Last Friday Night (T.G.I.F.)",
+			uri: "6zq6pLggC3qtfxUYWoZwfL",
+			bpm: 126
+		},
+		{
+			artist: "Michael Jackson",
+			track: "Rock With You",
+			uri: "2YLmyVJXOe4KRI3KbSXNOi",
+			bpm: 114.5
+		},
+		{
+			artist: "ESG",
+			track: "Dance",
+			uri: "6uE4IomedrEcbFVXNNTYOQ",
+			bpm: 138.268
+		},
+		{
+			artist: "The Clash",
+			track: "The Magnificent Seven",
+			uri: "1W8Jl9KaSSt23ihF1Mej17",
+			bpm: 116.082
+		},
+		{
+			artist: "Shitdisco",
+			track: "Disco Blood",
+			uri: "1Bm7pEL9YECCwg2YKueqAR",
+			bpm: 151.58
+		},
+		{
+			artist: "Bye Bye Bicycle",
+			track: "Navigation",
+			uri: "14WrYIFpHTUMIdjlJbTA6W",
+			bpm: 136.085
+		},
+		{
+			artist: "The Maccabees",
+			track: "About Your Dress",
+			uri: "4SeJWEQfmmsPEDB9JP7HBa",
+			bpm: 173.204
+		},
+		{
+			artist: "Liquid Liquid",
+			track: "Optimo",
+			uri: "5j6H5de3TPYrw4sTjGHKAY",
+			bpm: 124
+		},
+		{
+			artist: "PNAU",
+			track: "Embrace",
+			uri: "02v5X54nrYYGL78zQF7O7l",
+			bpm: 128
+		},
+		{
+			artist: "Martin Solvieg",
+			track: "Hello (feat. Dragonette)",
+			uri: "3sl4dcqSwxHVnLfqwF2jly",
+			bpm: 127.988
+		},
+		{
+			artist: "Pitbull feat. Christina Aguilera",
+			track: "Feel This Moment",
+			uri: "0Hf4aIJpsN4Os2f0y0VqWl",
+			bpm: 135.979
+		},
+
+
+
 	];
+
+
 
 	return PopSongs;
 });
