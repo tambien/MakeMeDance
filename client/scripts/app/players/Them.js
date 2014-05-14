@@ -1,8 +1,11 @@
-define(["controller/Mediator", "players/Player"], function(Mediator, Player){
+define(["controller/Mediator", "players/Player", "players/Curator"], function(Mediator, Player, Curator){
 	
 	var player = new Player("them");
-
 	var websocket = new WebSocket("ws://"+window.location.hostname + ":4181/");
+	var themTurn = false;
+	var amMatched = true;
+	var curTimeout = -1;
+
 
 	websocket.onopen = function(){
 		console.log("connected to server");
@@ -14,6 +17,7 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 		if (msg.command === "match" && !amMatched){
 			amMatched = true;
 			Mediator.send("player/them/arrived", msg.meFirst);
+			clearTimeout(curTimeout);
 		} else if (msg.command === "song" && amMatched && themTurn){
 			//got a song from the other person
 			Mediator.send("dancing/Song/clicked", msg);
@@ -28,14 +32,14 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 		}
 	}
 
-	var themTurn = false;
-
-	var amMatched = true;
 
 	function takeTurn(){
 		themTurn = true;
 		player.setText("A song is being chosen for you!<br>Sit back and relax.");
 		player.blockSelection(true);
+		if (Curator.inControl()){
+			Curator.makeSelection();
+		}
 	}
 
 	Mediator.route("player/them/takeTurn", takeTurn);
@@ -45,23 +49,38 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 			themTurn = false;
 			player.removeText();
 		} else {
-			//send the song data to the other person
-			msg.command = "song";
-			websocket.send(JSON.stringify(msg));
 			//waiting for vote
 			themTurn = true;
+			if (Curator.inControl()){
+				Curator.vote(msg);
+			} else {
+				//send the song data to the other person
+				msg.command = "song";
+				websocket.send(JSON.stringify(msg));
+			}
 		}
 	});
 
 
 	Mediator.route("dancing/voted", function(msg){
-		if (!themTurn){
+		if (!themTurn && !Curator.inControl()){
 			websocket.send(JSON.stringify({
 				command : "vote",
 				choice : msg
 			}));
 		}
 	});
+
+	function startCurator(){
+		Curator.takeControl();
+		amMatched = true;
+		sendReset();
+		player.setText("You will be matched with MakeMeDance Curator : "+Curator.getName());
+		amMatched = true;
+		setTimeout(function(){
+			Mediator.send("player/them/arrived", true);
+		}, 2000);
+	}
 
 
 	//get the them player on session start//
@@ -73,6 +92,12 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 		amMatched = false;
 		var command = {"command" : "match"};
 		websocket.send(JSON.stringify(command));
+		curTimeout = setTimeout(startCurator, 10000);
+	}
+
+	function sendReset(){
+		var command = {"command" : "reset"};
+		websocket.send(JSON.stringify(command));
 	}
 
 	Mediator.route("screen/Dancing/display", startSession);
@@ -81,8 +106,7 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 	Mediator.route("reset", function(){
 		amMatched = false;
 		themTurn = false;
-		var command = {"command" : "reset"};
-		websocket.send(JSON.stringify(command));
+		sendReset();
 	});
 
 	return player;

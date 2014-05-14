@@ -29,7 +29,7 @@ define(["controller/Mediator", "dancing/SongSelection"], function(Mediator, Song
 			time.text("00:"+timePassed);
 			stopTimer();
 			//pick the next song
-			Mediator.send("dancing/Song/clicked", SongSelection.getRandomSong().description);
+			Mediator.send("dancing/Song/clicked", SongSelection.getRandomSong());
 		}
 	}
 });	

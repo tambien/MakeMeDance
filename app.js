@@ -54,9 +54,13 @@ Player.prototype.recv = function(msg){
 		this.findMatch();
 	} else if (msg.command === "song"){
 		//if it's a song choice, forward it to the partner
-		this.partner.send(msg);
+		if (this.partner !== null){
+			this.partner.send(msg);
+		}
 	} else if (msg.command === "vote"){
-		this.partner.send(msg);
+		if (this.partner !== null){
+			this.partner.send(msg);
+		}
 	} else if (msg.command = "reset"){
 		this.reset();
 	}
