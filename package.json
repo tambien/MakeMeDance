@@ -7,6 +7,9 @@
     "express": "3.x",
     "ws": "0.4.x"
   },
+  "engines": {
+  	"node": "0.10.x"
+  },
   "main": "app.js",
   "devDependencies": {},
   "scripts": {
