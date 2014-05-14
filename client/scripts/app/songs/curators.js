@@ -29,7 +29,7 @@ define(function(){
 		{
 			name: "Jerllin",
 			spotifyuser: "1239272058",
-			songs: ["2nMeu6UenVvwUktBCpLMK9", "439TlnnznSiBbQbgXiBqAd", "69yVxyuRahEzs2taFMVVoO", "2cGxRwrMyEAp8dEbuZaVv6", "44eQkbofZeY7rEPnPdobwa", "3gbBpTdY8lnQwqxNCcf795"]
+			songs: ["00FQb4jTyendYWaN8pK0wa", "7EQ0qTo7fWT7DPxmxtSYEc", "3xkxcbnc7G3XYuZt6eUnI5", "439TlnnznSiBbQbgXiBqAd", "2cGxRwrMyEAp8dEbuZaVv6", "4y8XhpQ7YqFLyz2o7c7r7X"]
 
 	];
 
