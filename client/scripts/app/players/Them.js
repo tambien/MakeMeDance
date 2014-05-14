@@ -1,6 +1,6 @@
 define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 	
-	var player = new Player("you");
+	var player = new Player("them");
 
 	var websocket = new WebSocket("ws://"+window.location.hostname + ":4181/");
 
@@ -23,7 +23,7 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 		} else if (msg.command == "disconnect"){
 			player.setText("Your partner has disconnected. <br> You will be redirected to the starting screen");
 			setTimeout(function(){
-				Mediator.send("reset");
+				Mediator.send("player/them/disconnected");
 			}, 1000);
 		}
 	}
@@ -81,6 +81,9 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 	Mediator.route("reset", function(){
 		amMatched = false;
 		themTurn = false;
-	});;
+		var command = {"command" : "reset"};
+		websocket.send(JSON.stringify(command));
+	});
 
+	return player;
 });

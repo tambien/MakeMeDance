@@ -100,6 +100,16 @@ a:hover {
 
 #Loading {
   position: absolute;
+  display: none;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 20%;
+  background-color: #83bc3b; }
+
+#Loading.Visible {
+  position: absolute;
+  display: block;
   left: 0px;
   top: 0px;
   height: 100%;
@@ -114,9 +124,17 @@ a:hover {
   -webkit-transition: opacity .4s; }
 
 #Launch {
+  width: 0px;
+  height: 0px;
+  color: white;
+  opacity: 0;
+  display: none; }
+
+#Launch.Visible {
   width: 360px;
   height: 300px;
   color: white;
+  display: block;
   opacity: 0; }
 
 #Launch #Text {
@@ -159,6 +177,13 @@ a:hover {
   height: 650px; }
 
 #Dancing {
+  display: none;
+  width: 1000px;
+  height: 650px;
+  opacity: 0; }
+
+#Dancing.Visible {
+  display: block;
   width: 1000px;
   height: 650px;
   opacity: 0; }
@@ -329,12 +354,17 @@ a:hover {
   text-align: center;
   color: #aaaaaa; }
 
-#SongPanel #Playlist .Song #Thumb {
-  width: 20px;
-  height: 20px;
-  position: relative;
+#Playlist #Songs #Artist {
+  width: auto;
   display: inline-block;
+  height: 100%;
+  margin-left: 35px;
   margin-right: 10px; }
+
+#SongPanel #Playlist .Song #Thumb {
+  position: absolute;
+  width: 35px;
+  height: 100%; }
 
 #SongPanel #Playlist #Songs .Song {
   pointer-events: none; }
@@ -345,19 +375,72 @@ a:hover {
 #Playlist .Song.Even {
   color: #5facc5; }
 
+#Playlist .Song.Odd.up #Thumb {
+  background: url("../images/red_up.png"); }
+
+#Playlist .Song.Odd.down #Thumb {
+  background: url("../images/red_down.png"); }
+
+#Playlist .Song.Even.up #Thumb {
+  background: url("../images/blue_up.png"); }
+
+#Playlist .Song.Even.down #Thumb {
+  background: url("../images/blue_down.png"); }
+
 #SongPanel #Playlist .Song.up #Thumb {
-  background: url("../images/Up_0.png");
-  background-size: 80% auto;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-color: white; }
+  background-size: 70% auto;
+  background-position: 50% 30%;
+  background-repeat: no-repeat; }
 
 #SongPanel #Playlist .Song.down #Thumb {
-  background: url("../images/Down_0.png");
-  background-size: 80% auto;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-color: white; }
+  background-size: 70% auto;
+  background-position: 50% 30%;
+  background-repeat: no-repeat; }
+
+#Playlist #PlayerLabels {
+  top: calc(100% + 10px);
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s; }
+
+#Playlist #PlayerLabels.Visible {
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s; }
+
+#Playlist .PlayerLabel:before {
+  width: 20px;
+  height: 20px;
+  content: "";
+  position: relative;
+  margin-right: 5px;
+  float: left; }
+
+#Playlist .PlayerLabel {
+  width: auto;
+  margin-left: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  position: relative;
+  float: left; }
+
+#Playlist #Label0 {
+  color: #e50036; }
+
+#Playlist #Label0:before {
+  background-color: #e50036; }
+
+#Playlist #Label1 {
+  color: #5facc5; }
+
+#Playlist #Label1:before {
+  background-color: #5facc5; }
 
 /*=============================================================================
 	SPOTIFY PLAYER
@@ -405,16 +488,16 @@ a:hover {
 #Thumbs #Up {
   left: 0px;
   background: url("../images/Up_0.png");
-  background-size: 80% auto;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; }
+  background-size: 80% auto !important;
+  background-position: 50% 50% !important;
+  background-repeat: no-repeat !important; }
 
 #Thumbs #Down {
   right: 0px;
   background: url("../images/Down_0.png");
-  background-size: 80% auto;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; }
+  background-size: 80% auto !important;
+  background-position: 50% 50% !important;
+  background-repeat: no-repeat !important; }
 
 /*=============================================================================
 	PLAYER TEXT
@@ -427,7 +510,7 @@ a:hover {
   height: 650px;
   text-align: center;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   font-size: 18px;
   z-index: 10;
   opacity: 0;
@@ -461,7 +544,7 @@ a:hover {
   top: 0px;
   left: 0px;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
@@ -484,12 +567,57 @@ a:hover {
   height: calc(100% - 20px * 3 - 80px); }
 
 #VideoArena video {
-  background-color: black;
   position: absolute;
   width: 100%;
   height: auto;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translate(0, -50%); }
+
+#VideoArena video.Visible {
+  opacity: 1; }
+
+/*=============================================================================
+	CLOCK
+=============================================================================*/
+#Clock {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  width: 70px;
+  height: 70px; }
+
+#Clock #Face {
+  background: url("../images/clock_face.png");
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+#Clock #Hand {
+  background: url("../images/clock_hand.png");
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg); }
+
+#Clock #Hand.Rotate {
+  -webkit-transform: rotate(375deg);
+  transform: rotate(375deg);
+  -webkit-transition: -webkit-transform 10s linear;
+  transition: transform 10s linear; }
+
+#Clock #Time {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: #83bc3b; }
 
 #Container.Selection {
   width: 800px;
@@ -497,6 +625,12 @@ a:hover {
 
 #Selection {
   opacity: 0;
+  width: 0px;
+  height: 0px;
+  display: none; }
+
+#Selection.Visible {
+  display: block;
   width: 800px;
   height: 430px; }
 
@@ -527,7 +661,7 @@ a:hover {
   position: absolute;
   top: 70px;
   width: 100%;
-  height: 340px; }
+  height: 330px; }
 
 #Selection #Avatars .Avatar {
   position: relative;
@@ -569,6 +703,14 @@ a:hover {
   height: 500px; }
 
 #Compatible {
+  display: none;
+  width: 0px;
+  height: 0px;
+  background-color: white;
+  opacity: 0; }
+
+#Compatible.Visible {
+  display: block;
   width: 800px;
   height: 500px;
   background-color: white;
@@ -613,13 +755,62 @@ a:hover {
 
 #Container.Compatible #Playlist #Scroller {
   position: absolute;
-  width: 75%;
+  width: 70%;
   height: 100%;
-  left: 25%;
+  left: 30%;
   top: 0px; }
 
 #Container.Compatible #Playlist #Scroller .Song {
   pointer-events: none; }
+
+#Container.Compatible #Playlist #Songs #Artist {
+  margin-left: 0px; }
+
+#Container.Compatible #Playlist #PlayerLabels {
+  top: 260px;
+  left: 20px;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s; }
+
+#Compatible .Avatar {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-size: 150% auto;
+  background-position: 61% 5%;
+  z-index: 1000;
+  border-radius: 50%; }
+
+#Compatible #Avatar0 {
+  top: 10px;
+  left: 5px; }
+
+#Compatible #Avatar1 {
+  top: 115px;
+  left: 65px; }
+
+#Compatible .Avatar.A {
+  background-image: url("../images/A.png"); }
+
+#Compatible .Avatar.B {
+  background-image: url("../images/B.png"); }
+
+#Compatible .Avatar.C {
+  background-image: url("../images/C.png"); }
+
+#Compatible #Check {
+  position: absolute;
+  z-index: 1000;
+  background-image: url("../images/checkbox.png");
+  background-size: 100% 100%;
+  width: 60px;
+  height: 60px;
+  top: 75px;
+  left: 145px; }
 
 /*=============================================================================
 	INCOMPATIBLE
@@ -632,7 +823,14 @@ a:hover {
 #Incompatible {
   width: 360px;
   height: 250px;
-  color: black; }
+  color: black;
+  display: none; }
+
+#Incompatible.Visible {
+  width: 360px;
+  height: 250px;
+  color: black;
+  display: block; }
 
 #Incompatible #Title {
   position: absolute;

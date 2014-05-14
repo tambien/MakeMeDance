@@ -18,12 +18,21 @@ define(["controller/Mediator"], function(Mediator){
 		var videoUrl = ["./videos/", song.genre , "_" , randIndex , ".mp4"].join("");
 		videoPlayerSource.src = videoUrl;
 		videoPlayer.load();
-		videoPlayer.playbackRate = 1.5;
-		//why doesn't it loop?
+		videoPlayer.playbackRate = song.bpm/120;
+		videoPlayer.loop = true;
+		/*//why doesn't it loop?
 		videoPlayer.onended = function(){
 			videoPlayer.currentTime = 0;
 			videoPlayer.play();	
-		}
+		}*/
 		videoPlayer.play();
+		//make it visible
+		videoContainer.find("video").addClass("Visible");
+	});
+
+	Mediator.route("reset", function(){
+		videoPlayer.pause();
+		videoPlayerSource.src = "";
+		videoContainer.find("video").removeClass("Visible");
 	});
 });

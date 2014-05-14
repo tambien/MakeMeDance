@@ -12,9 +12,18 @@ $LaunchScreenHeight : 300px;
 }
 
 #Launch {
+	width: 0px;
+	height: 0px;
+	color: white;
+	opacity: 0;
+	display: none;
+}
+
+#Launch.Visible {
 	width: $LaunchScreenWidth;
 	height: $LaunchScreenHeight;
 	color: white;
+	display: block;
 	opacity: 0;
 }
 

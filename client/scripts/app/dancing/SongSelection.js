@@ -4,6 +4,8 @@ define(["controller/Mediator", "dancing/Tab", "songs/HipHop", "songs/EDM", "song
 
 	var container = $("#SongSelection");
 
+	var tabs = [];
+	
 	//make a tab for each of the styles
 	var edm = new Tab(container.find("#EDM"), EDM, "EDM");
 	edm.onclick(clicked);
@@ -11,8 +13,7 @@ define(["controller/Mediator", "dancing/Tab", "songs/HipHop", "songs/EDM", "song
 	popSongs.onclick(clicked);
 	var hipHop = new Tab(container.find("#HipHop"), HipHop, "HIPHOP");
 	hipHop.onclick(clicked);
-
-	var tabs = [edm, popSongs, hipHop];
+	tabs = [edm, popSongs, hipHop];
 	
 	//start with pop selected
 	popSongs.select();

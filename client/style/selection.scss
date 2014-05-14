@@ -8,6 +8,13 @@ $SelectionHeight : 430px;
 
 #Selection {
 	opacity: 0;
+	width: 0px;
+	height: 0px;
+	display: none;
+}
+
+#Selection.Visible {
+	display: block;
 	width: $SelectionWidth;
 	height: $SelectionHeight;
 }
@@ -39,7 +46,7 @@ $SelectionTitleHeight : 70px;
 	position: absolute;
 	top: 70px;
 	width: 100%;
-	height: $SelectionHeight - $SelectionTitleHeight - 20px;
+	height: $SelectionHeight - $SelectionTitleHeight - 30px;
 }
 
 #Selection #Avatars .Avatar {

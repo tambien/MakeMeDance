@@ -4,9 +4,6 @@ define(["controller/Mediator", "screen/Screen", "screen/Avatar"], function(Media
 
 	var titleText = selection.element.find("#Title");
 
-	//make the avatars
-	var avatars = [];
-
 	function makeAvatars(){
 		var avatarContainer = selection.element.find("#Avatars");
 		var a = new Avatar("A", avatarContainer);
@@ -49,6 +46,12 @@ define(["controller/Mediator", "screen/Screen", "screen/Avatar"], function(Media
 		});
 	});
 
+	Mediator.route("reset", function(){
+		youSelection = null;
+		themSelection = null;
+		titleText.html("CHOOSE YOUR AVATAR");
+	});
+	
 	//initialize
 	makeAvatars();
 })

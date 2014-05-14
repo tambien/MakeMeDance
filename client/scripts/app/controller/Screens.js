@@ -5,6 +5,8 @@ define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancin
 	//start with the loading screen
 	Mediator.send("screen/Launch/display", container);
 
+	var currentScreen = null;
+
 	//wait for everything to load
 	Mediator.route("allLoaded", function(){
 		//after it's loaded, go to the launch screen
@@ -30,9 +32,20 @@ define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancin
 		}
 	});
 
+	Mediator.route("reset", function(){
+		transition(currentScreen, "Selection");
+	});
+
+	Mediator.route("player/them/disconnected", function(){
+		if (currentScreen === "Dancing"){
+			Mediator.send("reset");
+		}
+	});
+
 	function transition(from, to){
 		Mediator.send("screen/"+from+"/disappear", container);
 		Mediator.send("screen/"+to+"/display", container);
+		currentScreen = to;
 	}
 
 })

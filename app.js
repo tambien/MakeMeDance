@@ -57,6 +57,8 @@ Player.prototype.recv = function(msg){
 		this.partner.send(msg);
 	} else if (msg.command === "vote"){
 		this.partner.send(msg);
+	} else if (msg.command = "reset"){
+		this.reset();
 	}
 	//if it's a request to connect
 }
@@ -94,9 +96,17 @@ Player.prototype.send = function(msg){
 }
 
 Player.prototype.disconnect = function(){
-	this.partner.partner = null;
-	this.partner = null;
+	this.reset();
 	this.send({"command" : "disconnect"});
+}
+
+Player.prototype.reset = function(){
+	if (this.partner !== null){
+		this.partner.partner = null;
+		this.partner = null;
+	}
+	this.ready = false;
+	clearTimeout(this.timeout);
 }
 
 
@@ -114,7 +124,7 @@ app.get('/playercount', function(req, res){
 });
 
 //static files
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/client'));
 
 
 //start the  server

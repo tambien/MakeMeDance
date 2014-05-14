@@ -1,5 +1,16 @@
 $DancingHeight : 650px;
 $DancingWidth : 1000px;
+$DancingScreenMargin : 20px;
+$BlockerBackground : rgba(0, 0, 0, .6);
+$SongPanelWidth : 400px;
+$TabTitleHeight : 35px;
+$ClockSize : 70px;
+
+
+@mixin OpacityTransition {
+	-webkit-transition : opacity .3s;
+	transition : opacity .3s;
+}
 
 #Container.Dancing {
 	width: $DancingWidth;
@@ -7,12 +18,19 @@ $DancingWidth : 1000px;
 }
 
 #Dancing {
+	display: none;
 	width: $DancingWidth;
 	height: $DancingHeight;
 	opacity: 0;
 }
 
-$SongPanelWidth : 400px;
+#Dancing.Visible {
+	display: block;
+	width: $DancingWidth;
+	height: $DancingHeight;
+	opacity: 0;
+}
+
 
 #Dancing #DanceArena {
 	height: 100%;
@@ -36,8 +54,6 @@ $SongPanelWidth : 400px;
 	SongSelection
 =============================================================================*/
 
-$DancingScreenMargin : 20px;
-
 #SongPanel #SongSelection {
 	height: 270px;
 	position: relative;
@@ -47,7 +63,6 @@ $DancingScreenMargin : 20px;
 	width: calc(100% - #{$DancingScreenMargin} * 2);
 }
 
-$TabTitleHeight : 35px;
 
 #SongPanel #SongSelection #Scroller{
 	top: $TabTitleHeight*2;
@@ -216,12 +231,18 @@ $TabTitleHeight : 35px;
 	color: $lightgray;
 }
 
-#SongPanel #Playlist .Song #Thumb{
-	width: 20px;
-	height: 20px;
-	position: relative;
+#Playlist #Songs #Artist{
+	width: auto;
 	display: inline-block;
+	height: 100%;
+	margin-left: 35px;
 	margin-right: 10px;
+}
+
+#SongPanel #Playlist .Song #Thumb{
+	position: absolute;
+	width: $TabTitleHeight;
+	height: 100%;
 }
 
 #SongPanel #Playlist #Songs .Song{
@@ -236,20 +257,85 @@ $TabTitleHeight : 35px;
 	color: $blue;
 }
 
+#Playlist .Song.Odd.up #Thumb{
+	background: url("../images/red_up.png");
+}
+
+#Playlist .Song.Odd.down #Thumb{
+	background: url("../images/red_down.png");
+}
+
+#Playlist .Song.Even.up #Thumb{
+	background: url("../images/blue_up.png");
+}
+
+#Playlist .Song.Even.down #Thumb{
+	background: url("../images/blue_down.png");
+}
+
 #SongPanel #Playlist .Song.up #Thumb{
-	background: url("../images/Up_0.png");
-	background-size: 80% auto;
-	background-position: 50% 50%;
+	background-size: 70% auto;
+	background-position: 50% 30%;
 	background-repeat: no-repeat;
-	background-color: $white;
 }
 
 #SongPanel #Playlist .Song.down #Thumb{
-	background: url("../images/Down_0.png");
-	background-size: 80% auto;
-	background-position: 50% 50%;
+	background-size: 70% auto;
+	background-position: 50% 30%;
 	background-repeat: no-repeat;
-	background-color: $white;
+}
+
+$PlayerLabelSize : 20px;
+
+#Playlist #PlayerLabels {
+	top: calc(100% + 10px);
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	height: $PlayerLabelSize;
+	opacity: 0;
+	@include OpacityTransition;
+}
+
+#Playlist #PlayerLabels.Visible {
+	opacity: 1;
+	@include OpacityTransition;	
+}
+
+#Playlist .PlayerLabel:before{
+	width: $PlayerLabelSize;
+	height: $PlayerLabelSize;
+	content: "";
+	position: relative;
+	margin-right: 5px;
+	float: left;
+}
+
+#Playlist .PlayerLabel{
+	width: auto;
+	margin-left: 20px;
+	height: $PlayerLabelSize;
+	font-size: 16px;
+	line-height: $PlayerLabelSize;
+	text-align: left;
+	position: relative;
+	float: left;
+}
+
+#Playlist #Label0{
+	color: $red;
+}
+
+#Playlist #Label0:before{
+	background-color: $red;
+}
+
+#Playlist #Label1{
+	color: $blue;
+}
+
+#Playlist #Label1:before{
+	background-color: $blue;
 }
 
 /*=============================================================================
@@ -309,29 +395,22 @@ $ThumbHeight : 80px;
 #Thumbs #Up {
 	left: 0px;
 	background: url("../images/Up_0.png");
-	background-size: 80% auto;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
+	background-size: 80% auto!important;
+	background-position: 50% 50%!important;
+	background-repeat: no-repeat!important;
 }
 
 #Thumbs #Down {
 	right: 0px;
 	background: url("../images/Down_0.png");
-	background-size: 80% auto;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
+	background-size: 80% auto!important;
+	background-position: 50% 50%!important;
+	background-repeat: no-repeat!important;
 }
 
 /*=============================================================================
 	PLAYER TEXT
 =============================================================================*/
-
-$BlockerBackground : rgba(0, 0, 0, .5);
-
-@mixin OpacityTransition {
-	-webkit-transition : opacity .3s;
-	transition : opacity .3s;
-}
 
 #PlayerText {
 	position: absolute;
@@ -401,10 +480,62 @@ $BlockerBackground : rgba(0, 0, 0, .5);
 }
 
 #VideoArena  video{
-	background-color: $black;
 	position: absolute;
 	width: 100%;
 	height: auto;
 	top: 50%;
+	opacity: 0;
 	-webkit-transform: translate(0, -50%);
+}
+
+#VideoArena  video.Visible{
+	opacity: 1;
+}
+
+/*=============================================================================
+	CLOCK
+=============================================================================*/
+
+#Clock {
+	position: absolute;
+	bottom: $DancingScreenMargin + 20px;
+	right: $DancingScreenMargin;
+	width: $ClockSize;
+	height: $ClockSize;
+}
+
+#Clock #Face{
+	background: url("../images/clock_face.png");
+	background-size: 100% 100%;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+#Clock #Hand{
+	background: url("../images/clock_hand.png");
+	background-size: 100% 100%;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	-webkit-transform: rotate(15deg);
+	transform: rotate(15deg);
+}
+
+#Clock #Hand.Rotate{
+	-webkit-transform: rotate(375deg);
+	transform: rotate(375deg);
+	-webkit-transition: -webkit-transform 10s linear;
+	transition: transform 10s linear;
+}
+
+#Clock #Time{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 100%;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	color: $green;
 }

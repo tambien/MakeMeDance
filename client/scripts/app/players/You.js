@@ -23,5 +23,9 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 		}
 	}
 
+	Mediator.route("reset", function(){
+		songSelected = true;
+	});
 
+	return player;
 });

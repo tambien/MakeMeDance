@@ -56,6 +56,17 @@ a:hover {
 
 #Loading {
 	position: absolute;
+	display: none;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 20%;
+	background-color: $green;
+}
+
+#Loading.Visible {
+	position: absolute;
+	display: block;
 	left: 0px;
 	top: 0px;
 	height: 100%;

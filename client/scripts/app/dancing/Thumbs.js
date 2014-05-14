@@ -2,30 +2,56 @@ define(["controller/Mediator"], function(Mediator){
 	var container = $("#Thumbs");
 
 	var up = container.find("#Up");
+	var down = container.find("#Down");
+	var vote = 0;
 
 	up.click(function(){
-		vote++;
 		Mediator.send("dancing/voted", "up");
 	});
 
-	var down = container.find("#Down");
 
 	down.click(function(){
-		vote--;
 		Mediator.send("dancing/voted", "down");
 	});
 
+	Mediator.route("dancing/voted", function(direction){
+		if (direction === "up"){
+			vote++;
+		} else if (direction === "down"){
+			vote--;
+		}
+	});
 
-	var vote = 0;
+	Mediator.route("dancing/voted", testVote);
 
 	function testVote(){
-		if (vote > 2){
+		//set the arrow level
+		if (vote >= 4){
 			Mediator.send("dancing/over", true);
-		} else if (vote < -2){
+		} else if (vote <= -4){
 			Mediator.send("dancing/over", false);
+		} else if (vote === 0){ //set hte thumb images
+			up.css({
+				"background" : "url('../images/Up_0.png')"
+			});
+			down.css({
+				"background" : "url('../images/Down_0.png')"
+			});
+		} else if (vote < 0){
+			down.css({
+				"background" : "url('../images/Down_"+Math.abs(vote)+".png')"
+			});
+		} else {
+			up.css({
+				"background" : "url('../images/Up_"+vote+".png')"
+			});
 		}
 	}
 
-	Mediator.route("dancing/voted", testVote);
+	Mediator.route("reset", function(){
+		vote = 0;
+		testVote();
+	});
+
 
 })

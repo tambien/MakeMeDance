@@ -7,6 +7,15 @@ $CompScreenHeight : 500px;
 }
 
 #Compatible {
+	display: none;
+	width: 0px;
+	height: 0px;
+	background-color: $white;
+	opacity: 0;
+}
+
+#Compatible.Visible {
+	display: block;
 	width: $CompScreenWidth;
 	height: $CompScreenHeight;
 	background-color: $white;
@@ -52,9 +61,9 @@ $CompScreenHeight : 500px;
 
 #Container.Compatible #Playlist #Scroller{
 	position: absolute;
-	width: 75%;
+	width: 70%;
 	height: 100%;
-	left: 25%;	
+	left: 30%;	
 	top: 0px;
 }
 
@@ -62,6 +71,65 @@ $CompScreenHeight : 500px;
 	pointer-events: none;
 }
 
+
+#Container.Compatible #Playlist #Songs #Artist{
+	margin-left: 0px;
+}
+
+#Container.Compatible #Playlist #PlayerLabels {
+	top: 260px;
+	left: 20px;
+	position: absolute;
+	width: 100%;
+	height: $PlayerLabelSize;
+	opacity: 1;
+	@include OpacityTransition;
+}
+
+$CompatibleAvatarSize : 150px;
+
+#Compatible .Avatar {
+	position: absolute;
+	width: $CompatibleAvatarSize;
+	height: $CompatibleAvatarSize;
+	background-size: 150% auto;
+	background-position: 61% 5%;
+	z-index: 1000;
+	border-radius: 50%;
+}
+
+#Compatible #Avatar0 {
+	top: 10px;
+	left: 5px;
+}
+
+#Compatible #Avatar1 {
+	top: 115px;
+	left: 65px;
+}		
+
+#Compatible .Avatar.A {
+	background-image: url("../images/A.png");
+}
+
+#Compatible .Avatar.B {
+	background-image: url("../images/B.png");
+}
+
+#Compatible .Avatar.C {
+	background-image: url("../images/C.png");
+}
+
+#Compatible #Check {
+	position: absolute;
+	z-index: 1000;
+	background-image: url("../images/checkbox.png");
+	background-size: 100% 100%;
+	width: 60px;
+	height: 60px;
+	top: 75px;
+	left: 145px;
+}
 
 
 /*=============================================================================
@@ -81,7 +149,17 @@ $IncompScreenHeight : 250px;
 	width: $IncompScreenWidth;
 	height: $IncompScreenHeight;
 	color: black;
+	display: none;
 }
+
+#Incompatible.Visible {
+	width: $IncompScreenWidth;
+	height: $IncompScreenHeight;
+	color: black;
+	display: block;
+}
+
+
 
 #Incompatible #Title {
 	position: absolute;

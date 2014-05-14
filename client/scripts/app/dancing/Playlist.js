@@ -2,6 +2,8 @@ define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
 	var container = $("#Playlist");
 
+	var containerCopy = null;
+
 	var songContainer = container.find("#Songs");
 
 	var songCount = 1;
@@ -26,6 +28,8 @@ define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
 	Mediator.route("reset", function(){
 		songContainer.empty();
+		songCount = 1;
+		currentSong = 0;
 	});
 
 
@@ -36,11 +40,12 @@ define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
 
 	Mediator.route("screen/Dancing/disappear", function(){
-		container.detach();
+		// container.detach();
+		containerCopy = container.clone(true, true);
 	});
 
 	Mediator.route("screen/Compatible/display", function(screenContainer){
-		screenContainer.append(container);
+		screenContainer.append(containerCopy);
 	});
 
 
