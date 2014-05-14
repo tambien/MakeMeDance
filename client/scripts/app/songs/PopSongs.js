@@ -122,12 +122,6 @@ define(function(){
 			bpm: 98.376
 		},
 		{
-			artist: "X-ecutioners",
-			track: "Genius Of Love 2002",
-			uri : "74WRHve8pGV0TlxM7GDYWU",
-			bpm: 102.641
-		},
-		{
 			artist: "Prince",
 			track: "When U Were Mine",
 			uri: "46wKrvbIRQXVbJQoGj7Aso",
@@ -275,7 +269,7 @@ define(function(){
 		{
 			artist: "Lana Del Rey",
 			track: "Ride",
-			uri: "00FQb4jTyendYWaN8pK0wa",
+			uri: "3l2S2RkGG4lbh7WqmCV3NB",
 			bpm: 93.563
 		},
 		{
@@ -283,7 +277,7 @@ define(function(){
 			track: "Pompeii",
 			uri: "7EQ0qTo7fWT7DPxmxtSYEc",
 			bpm: 129.173
-		},
+		}
 
 	];
 

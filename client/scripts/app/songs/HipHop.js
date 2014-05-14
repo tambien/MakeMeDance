@@ -128,8 +128,13 @@ define(function(){
 			track: "Empire State of Mind",
 			uri: "3xkxcbnc7G3XYuZt6eUnI5",
 			bpm: 173.597
+		},
+		{
+			artist: "X-ecutioners",
+			track: "Genius Of Love 2002",
+			uri : "3lRfdJJ0lVcQrVHfKgoPug",
+			bpm: 102.641
 		}
-		
 		
 	];
 
