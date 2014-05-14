@@ -195,7 +195,7 @@ define(function(){
 		},
 		{
 			artist: "Lykke Li".
-			track: "I Follow Rivers (Magician Remix)"
+			track: "I Follow Rivers (Magician Remix)",
 			uri: "4Jv7lweGIUOFQ7Oq2AtAh9",
 			bpm: 121.983
 		},
@@ -232,8 +232,20 @@ define(function(){
 		{
 			artist: "Bonde Do Role"
 			track: "Office Boy (CSS Remix)",
-			uri: "6YQCMUdW7FxMthpE5Iz5Z7"
+			uri: "6YQCMUdW7FxMthpE5Iz5Z7",
 			bpm: 130
+		}
+		{
+			artist: "Daft Punk",
+			track: "Instant Crush",
+			uri: "2cGxRwrMyEAp8dEbuZaVv6",
+			bpm: 109.98
+		},
+		{
+			artist: "Rokysopp & Robyn"
+			track: "Do it Again",
+			uri: "4y8XhpQ7YqFLyz2o7c7r7X",
+			bpm: 123.918
 		}
 	];
 
