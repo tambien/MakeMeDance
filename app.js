@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+/*
 var WebSocketServer = require('ws').Server
   , wss = new WebSocketServer({port: 4181});
 
@@ -125,7 +125,7 @@ app.get('/playercount', function(req, res){
 		count++;
 	}
 	res.send({"count" : count});
-});
+});*/
 
 //static files
 app.use(express.static(__dirname + '/client'));
