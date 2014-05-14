@@ -131,6 +131,7 @@ app.get('/playercount', function(req, res){
 app.use(express.static(__dirname + '/client'));
 
 
+var port = process.env.PORT || 3000;
 //start the  server
-console.log("server started port 3000");
-app.listen(3000);
+console.log("server started port "+port);
+app.listen(port);
