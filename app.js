@@ -1,8 +1,39 @@
 var express = require('express');
 var app = express();
-
+var http = require('http')
 var WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({port: 4181});
+
+///////////////////////////////////////////////////////////////////////////////
+//	ROUTES
+///////////////////////////////////////////////////////////////////////////////
+	
+//get the number of players online
+app.get('/playercount', function(req, res){
+	var count = 0;
+	for(var i in onlinePlayers){
+		count++;
+	}
+	res.send({"count" : count});
+});
+
+//static files
+app.use(express.static(__dirname + '/client'));
+
+var port = Number(process.env.PORT || 5000);
+
+var server = http.createServer(app);
+server.listen(port);
+
+console.log('http server listening on %d', port);
+
+///////////////////////////////////////////////////////////////////////////////
+//	WEBSOCKET
+///////////////////////////////////////////////////////////////////////////////
+
+
+var wss = new WebSocketServer({server: server});
+
+console.log('websocket server created');
 
 ///////////////////////////////////////////////////////////////////////////////
 //	PLAYERS
@@ -112,25 +143,3 @@ Player.prototype.reset = function(){
 	this.ready = false;
 	clearTimeout(this.timeout);
 }
-
-
-///////////////////////////////////////////////////////////////////////////////
-//	ROUTES
-///////////////////////////////////////////////////////////////////////////////
-	
-//get the number of players online
-app.get('/playercount', function(req, res){
-	var count = 0;
-	for(var i in onlinePlayers){
-		count++;
-	}
-	res.send({"count" : count});
-});
-
-//static files
-app.use(express.static(__dirname + '/client'));
-
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function() {
-  console.log("Listening on " + port);
-});

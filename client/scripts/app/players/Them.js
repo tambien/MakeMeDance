@@ -1,7 +1,9 @@
 define(["controller/Mediator", "players/Player", "players/Curator"], function(Mediator, Player, Curator){
 	
 	var player = new Player("them");
-	var websocket = new WebSocket("ws://"+window.location.hostname + ":4181/");
+
+	var host = location.origin.replace(/^http/, 'ws')
+	var websocket = new WebSocket(host);
 	var themTurn = false;
 	var amMatched = true;
 	var curTimeout = -1;
