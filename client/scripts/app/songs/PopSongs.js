@@ -272,8 +272,18 @@ define(function(){
 			uri: "0Hf4aIJpsN4Os2f0y0VqWl",
 			bpm: 135.979
 		},
-
-
+		{
+			artist: "Lana Del Rey",
+			track: "Ride",
+			uri: "00FQb4jTyendYWaN8pK0wa",
+			bpm: 93.563
+		},
+		{
+			artist: "Bastille",
+			track: "Pompeii",
+			uri: "7EQ0qTo7fWT7DPxmxtSYEc",
+			bpm: 129.173
+		},
 
 	];
 
