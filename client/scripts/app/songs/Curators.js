@@ -4,7 +4,7 @@ define(function(){
 		{
 			name : "Jason",
 			spotifyuser : "talkscheap", //i.e. https://play.spotify.com/user/talkscheap
-			songs : ["6oV3BNm1Gj2GGgpYknc5TN", "3lRfdJJ0lVcQrVHfKgoPug", "0gusqTJKxtU1UTmNRMHZcv", "46wKrvbIRQXVbJQoGj7Aso", "6LNwcU77wgVQ5PLSnrRwAN", "7egQFB1zrDcvy3kdTaKbpc", "4fOSxhBn0amLyospbb5W7c", "4gkxGrIuTzLykIq0aG5xUe", "4Tyv7nnNTHC6mR1pTubIrw", "7yIsRdoQuMUZVS0KNkSVlZ", "0jukQ0IIFn5LRBIAfFl28w"]
+			songs : ["5MEbZDarnqcQX7mbYR5rt7", "3lRfdJJ0lVcQrVHfKgoPug", "0Bkd3FcTIMzVst5QmZSeTC", "46wKrvbIRQXVbJQoGj7Aso", "6LNwcU77wgVQ5PLSnrRwAN", "7egQFB1zrDcvy3kdTaKbpc", "4fOSxhBn0amLyospbb5W7c", "4gkxGrIuTzLykIq0aG5xUe", "4Tyv7nnNTHC6mR1pTubIrw", "7yIsRdoQuMUZVS0KNkSVlZ", "0jukQ0IIFn5LRBIAfFl28w"]
 		},
 		{
 			name : "Richie",

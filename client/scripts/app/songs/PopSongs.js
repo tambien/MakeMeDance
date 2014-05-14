@@ -118,7 +118,7 @@ define(function(){
 		{
 			artist: "George McCrae",
 			track: "I Get Lifted",
-			uri : "6oV3BNm1Gj2GGgpYknc5TN",
+			uri : "5MEbZDarnqcQX7mbYR5rt7",
 			bpm: 98.376
 		},
 		{
