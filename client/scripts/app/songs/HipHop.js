@@ -108,15 +108,15 @@ define(function(){
 		{
 			artist: "Snap!",
 			track: "I've Got The Power",
-			uri: "",
-			bpm: 
+			uri: "55cU1KvvGdJEwPY4gAT3pJ",
+			bpm: 109
 		},
 		{
 			artist: "Rob Base & DJ E-Z Rock",
 			track: "It Takes Two",
-			uri: "",
-			bpm: 
-		}
+			uri: "4UB6cBHBeVb0JkIzYjMW2H",
+			bpm: 111.561
+		},
 		{
 			artist: "Kendrick Lamar",
 			track: "m.A.A.d City",
