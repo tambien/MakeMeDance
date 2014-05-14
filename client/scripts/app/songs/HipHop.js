@@ -104,7 +104,8 @@ define(function(){
 			track: "Get Down",
 			uri: "6nkgBdXkiWKxLQ9VOVVmEy",
 			bpm: 73.179
-		},{
+		},
+		{
 			artist: "Snap!",
 			track: "I've Got The Power",
 			uri: "",
@@ -116,6 +117,20 @@ define(function(){
 			uri: "",
 			bpm: 
 		}
+		{
+			artist: "Kendrick Lamar",
+			track: "m.A.A.d City",
+			uri: "439TlnnznSiBbQbgXiBqAd",
+			bpm: 91.180
+		},
+		{
+			artist: "Jay-Z and Alicia Keys",
+			track: "Empire State of Mind",
+			uri: "3xkxcbnc7G3XYuZt6eUnI5",
+			bpm: 173.597
+		}
+		
+		
 	];
 
 	return HipHopSongs;
