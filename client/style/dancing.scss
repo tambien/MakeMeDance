@@ -477,6 +477,7 @@ $ThumbHeight : 80px;
 	left: $DancingScreenMargin;
 	width: calc(100% - #{$DancingScreenMargin} * 2);
 	height: calc(100% - #{$DancingScreenMargin} * 3 - #{$ThumbHeight});
+	clip: rect(90px,600px,420px,0px);
 }
 
 #VideoArena  video{

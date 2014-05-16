@@ -564,7 +564,8 @@ a:hover {
   top: 20px;
   left: 20px;
   width: calc(100% - 20px * 2);
-  height: calc(100% - 20px * 3 - 80px); }
+  height: calc(100% - 20px * 3 - 80px);
+  clip: rect(90px, 600px, 420px, 0px); }
 
 #VideoArena video {
   position: absolute;
@@ -690,13 +691,13 @@ a:hover {
   opacity: 1; }
 
 #Selection #Avatars #A {
-  background-image: url("../images/A.png"); }
+  background-image: url("../images/GIF-ELIAH-2.gif"); }
 
 #Selection #Avatars #B {
-  background-image: url("../images/B.png"); }
+  background-image: url("../images/GIF-PAULIE.gif"); }
 
 #Selection #Avatars #C {
-  background-image: url("../images/C.png"); }
+  background-image: url("../images/GIF-MANOLO.gif"); }
 
 #Container.Compatible {
   width: 800px;
