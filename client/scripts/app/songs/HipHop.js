@@ -49,7 +49,7 @@ define(function(){
 		},{
 			artist : "Dizzee Rascal",
 			track : "Fix Up, Look Sharp",
-			uri : "0gusqTJKxtU1UTmNRMHZcv",
+			uri : "0Bkd3FcTIMzVst5QmZSeTC",
 			bpm : 104.756
 		},{
 			artist : "Shabazz Palaces",
