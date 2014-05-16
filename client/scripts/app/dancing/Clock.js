@@ -23,7 +23,7 @@ define(["controller/Mediator", "dancing/SongSelection"], function(Mediator, Song
 
 	function updateTimer(){
 		timePassed++;
-		if (timePassed < 10){
+		if (timePassed < 15){
 			time.text("00:0"+timePassed);
 		} else {
 			time.text("00:"+timePassed);
