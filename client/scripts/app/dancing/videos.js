@@ -387,65 +387,65 @@ define(function(){
 		}, 
 		{
 			"url" : "HIPHOP_EDM_1.mp4", 
-			"genre" : "", 
+			"genre" : "HipHop_EDM", 
 			"avatars" : [],
-			"mood" : "Transition from Hip Hop to EDM",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "HIPHOP_POP_1.mp4", 
-			"genre" : "", 
+			"genre" : "HipHop_Pop", 
 			"avatars" : [],
-			"mood" : "Transition from Hip Hop to Pop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "EDM_HIPHOP_1.mp4", 
-			"genre" : "", 
+			"genre" : "EDM_HipHop", 
 			"avatars" : [],
-			"mood" : "Transition from EDM to Hip Hop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "EDM_POP_1.mp4", 
-			"genre" : "", 
+			"genre" : "EDM_Pop", 
 			"avatars" : [],
-			"mood" : "Transition from EDM to Pop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "POP_EDM_1.mp4", 
-			"genre" : "", 
+			"genre" : "Pop_EDM", 
 			"avatars" : [],
-			"mood" : "Transition from Pop to EDM",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "POP_HIPHOP_1.mp4", 
-			"genre" : "", 
+			"genre" : "Pop_HipHop", 
 			"avatars" : [],
-			"mood" : "Transition from Pop to Hip Hop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "INTRO_EDM_1.mp4", 
-			"genre" : "", 
+			"genre" : "Intro_EDM", 
 			"avatars" : [],
-			"mood" : "Transition from Intro to EDM",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "INTRO_HIPHOP_1.mp4", 
-			"genre" : "", 
+			"genre" : "Intro_HipHop", 
 			"avatars" : [],
-			"mood" : "Transition from Intro to Hip Hop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
 			"url" : "INTRO_POP_1.mp4", 
-			"genre" : "", 
+			"genre" : "Intro_Pop", 
 			"avatars" : [],
-			"mood" : "Transition from Intro to Pop",
+			"mood" : "Transition",
 			"bpm" : null
 		}, 
 		{
@@ -524,9 +524,21 @@ define(function(){
 			"avatars" : ["Manolo", "Paulie"],
 			"mood" : "Out_Down",
 			"bpm" : null
+		},
+		{
+			"url" : "Out_05ME_Down.mp4", 
+			"genre" : "", 
+			"avatars" : ["Manolo", "Elijah"],
+			"mood" : "Out_Down",
+			"bpm" : null
+		},
+		{
+			"url" : "Out_06EP_Up.mp4", 
+			"genre" : "", 
+			"avatars" : ["Elijah", "Paulie"],
+			"mood" : "Out_Up",
+			"bpm" : null
 		}
-
-
 
 			];
 
