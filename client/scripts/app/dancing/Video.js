@@ -53,6 +53,16 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 		return randomVideo();
 	}
 
+	function findOutro(dj, dancer, compatible){
+		var vidMood = compatible ? "Out_Up" : "Out_Down";
+		for (var i = 0; i < Videos.length; i++){
+			var vid = Videos[i];
+			if (vid.avatars.indexOf(dj) !== -1 && vid.avatars.indexOf(dancer) !== -1 && vid.mood === vidMood){
+				return vid;
+			}
+		}
+	}
+
 	function randomVideo (){
 		console.log("returning random video");
 		var index = parseInt(Math.random() * Videos.length, 10);
@@ -65,6 +75,19 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 		var dancer = Dancers[Players.getDancer()];
 		var video = findVideo(dj, dancer, song.genre, likeLevel);
 		playVideo(video.url, song.bpm, video.bpm);
+	});
+
+
+	Mediator.route("dancing/outro", function(compatible){
+		var dj = Dancers[Players.getDJ()];
+		var dancer = Dancers[Players.getDancer()];
+		var vid = findOutro(dj, dancer, compatible);
+		playVideo(vid.url, 120, 120);
+		//get the duration
+		var duration = vid.duration || 7;
+		setTimeout(function(){
+			Mediator.send("dancing/over", compatible);
+		}, duration * 1000);
 	});
 
 	Mediator.route("reset", function(){

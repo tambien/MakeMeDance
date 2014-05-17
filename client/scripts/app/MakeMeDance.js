@@ -6,7 +6,7 @@ require.config({
 });
 
 require(["controller/Mediator", "controller/Screens", "deps/domReady!", "players/Players"], function(Mediator){
-	console.log("MAKE ME DANCE v02");
+	console.log("MAKE ME DANCE v03");
 
 	Mediator.route("update", function(){
 

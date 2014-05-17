@@ -27,9 +27,9 @@ define(["controller/Mediator"], function(Mediator){
 	function testVote(){
 		//set the arrow level
 		if (vote >= 3){
-			Mediator.send("dancing/over", true);
+			Mediator.send("dancing/outro", true);
 		} else if (vote <= -3){
-			Mediator.send("dancing/over", false);
+			Mediator.send("dancing/outro", false);
 		} else if (vote === 0){ //set hte thumb images
 			up.css({
 				"background" : "url('../images/Up_0.png')"
