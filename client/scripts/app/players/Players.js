@@ -37,9 +37,7 @@ define(["controller/Mediator", "players/Them", "players/You"], function(Mediator
 	});
 
 	//listen for the thumbs up/down
-	Mediator.route("dancing/voted", function(){
-		takeTurn();
-	});
+	Mediator.route("dancing/takeTurn", takeTurn);
 
 	return {
 		getDJ : function(){

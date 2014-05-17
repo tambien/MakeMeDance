@@ -46,6 +46,9 @@ define(["controller/Mediator"], function(Mediator){
 				"background" : "url('../images/Up_"+vote+".png')"
 			});
 		}
+		if (Math.abs(vote) < 3){
+			Mediator.send("dancing/takeTurn");
+		}
 	}
 
 	Mediator.route("reset", function(){
