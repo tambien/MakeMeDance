@@ -27,7 +27,7 @@ define(["controller/Mediator", "songs/Curators", "dancing/SongSelection"], funct
 
 	function vote(msg){
 		setTimeout(function(){
-			//check if current song is in the mysongs loist
+			//check if current song is in the mysongs list
 			for (var i = 0; i < curator.songs.length; i++){
 				var song = curator.songs[i];
 				if (msg.uri === song){
@@ -36,9 +36,9 @@ define(["controller/Mediator", "songs/Curators", "dancing/SongSelection"], funct
 					return;
 				}
 			}
-			//the song was not in the list, vote randomly
+			//the song was not in the list, vote randomly. Vote after a random amount of time has passed
 			Mediator.send("dancing/voted", Math.random() > .4 ? "up" : "down");
-		}, 10000);
+		}, Math.random()*45000) + 2000;
 	}
 
 	Mediator.route("reset", function(){

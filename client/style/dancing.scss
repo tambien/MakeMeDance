@@ -417,7 +417,7 @@ $ThumbHeight : 80px;
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: $DancingHeight;
+	height: $DancingHeight/6;
 	text-align: center;
 	color: $white;
 	background-color: $BlockerBackground;
@@ -435,7 +435,7 @@ $ThumbHeight : 80px;
 	width: 400px;
 	height: 100px;
 	margin-left: -200px;
-	margin-top: -50px;
+	margin-top: -25px;
 	text-align: center;
 	color: $white;
 	font-size: 18px;
@@ -477,6 +477,7 @@ $ThumbHeight : 80px;
 	left: $DancingScreenMargin;
 	width: calc(100% - #{$DancingScreenMargin} * 2);
 	height: calc(100% - #{$DancingScreenMargin} * 3 - #{$ThumbHeight});
+	clip: rect(90px,600px,420px,0px);
 }
 
 #VideoArena  video{
