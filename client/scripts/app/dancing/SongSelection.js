@@ -20,19 +20,30 @@ function(Mediator, Tab, HipHop, EDM, PopSongs){
 		song.genre = "HipHop";
 	})
 	
-	//make a tab for each of the styles
+	/*//make a tab for each of the styles
 	var edm = new Tab(container.find("#EDM"), EDM, "EDM");
 	edm.onclick(clicked);
 	var popSongs = new Tab(container.find("#Pop"), PopSongs, "POP");
 	popSongs.onclick(clicked);
 	var hipHop = new Tab(container.find("#HipHop"), HipHop, "HIPHOP");
 	hipHop.onclick(clicked);
-	tabs = [edm, popSongs, hipHop];
+	tabs = [edm, popSongs, hipHop];*/
 
 	var allSongs = EDM.concat(PopSongs, HipHop);
+
+	function shuffleArray(arr) {
+		var o = arr.slice(0);
+		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
+	};
+	//randomize the array
+	allSongs = shuffleArray(allSongs);
+
+	var popSongs = new Tab(container.find("#Pop"), allSongs, "Songs");
 	
 	//start with pop selected
 	popSongs.select();
+
 
 	function clicked(tab){
 		for (var i = 0; i < tabs.length; i++){

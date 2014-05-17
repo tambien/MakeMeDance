@@ -1,7 +1,7 @@
 3.2.10 (Media Mark)
-9cfe75136e27c957a470e4f795eb031c3e04fbe7
+8851ea13c367062a41ed1e9baccdbd6772ed11b7
 o:Sass::Tree::RootNode
-:@template"Ÿ'$DancingHeight : 650px;
+:@template"•'$DancingHeight : 650px;
 $DancingWidth : 1000px;
 $DancingScreenMargin : 20px;
 $BlockerBackground : transparent;
@@ -81,7 +81,7 @@ $ClockSize : 70px;
 
 
 #SongPanel #SongSelection #Title{
-	width: calc(100% / 3);
+	width: 100%;
 	height: $TabTitleHeight;
 	line-height: $TabTitleHeight;
 	position: absolute;
@@ -600,7 +600,7 @@ width;[ ;o;;;;"	100%;@;@;iM;;o;;i ;	["height;[ ;o;;;;"
 ;(0;$@Ô;)o;*;+{ ;iL;%[o;,;	["SongPanel;$@Ô;iLo;'
 ;(0;$@Ô;)o;*;+{ ;iL;%[o;,;	["SongSelection;$@Ô;iLo;'
 ;(0;$@Ô;)o;*;+{ ;iL;%[o;-;	["Tab;$@Ô;iL;To;;i ;[o;;i ;	["
-width;[ ;o;	;;;"calc(100% / 3);@;iV;@;iV;;o;;i ;	["height;[ ;o;	; "TabTitleHeight;	"TabTitleHeight;@;iW;@;iW;;o;;i ;	["line-height;[ ;o;	; "TabTitleHeight;	"TabTitleHeight;@;iX;@;iX;;o;;i ;	["position;[ ;o;;;;"absolute;@;@;iY;;o;;i ;	["top;[ ;o;;;;"0px;@;@;iZ;;o;;i ;	["background-color;[ ;o;	; "
+width;[ ;o;;;;"	100%;@;@;iV;;o;;i ;	["height;[ ;o;	; "TabTitleHeight;	"TabTitleHeight;@;iW;@;iW;;o;;i ;	["line-height;[ ;o;	; "TabTitleHeight;	"TabTitleHeight;@;iX;@;iX;;o;;i ;	["position;[ ;o;;;;"absolute;@;@;iY;;o;;i ;	["top;[ ;o;;;;"0px;@;@;iZ;;o;;i ;	["background-color;[ ;o;	; "
 black;	"
 black;@;i[;@;i[;;o;;i ;	["border-bottom;[ ;o:Sass::Script::List	;[o;;["px;i;@;"1px;i\;[ o;	;;;"
 solid;@;i\o;	; "lightgray;	"lightgray;@;i\;@;i\:@separator:

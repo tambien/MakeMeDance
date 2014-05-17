@@ -53,5 +53,10 @@ define(["controller/Mediator"], function(Mediator){
 		testVote();
 	});
 
+	return {
+		getVote : function(){
+			return vote;
+		}
+	}
 
-})
+});

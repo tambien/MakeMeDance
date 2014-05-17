@@ -78,7 +78,7 @@ $ClockSize : 70px;
 
 
 #SongPanel #SongSelection #Title{
-	width: calc(100% / 3);
+	width: 100%;
 	height: $TabTitleHeight;
 	line-height: $TabTitleHeight;
 	position: absolute;
