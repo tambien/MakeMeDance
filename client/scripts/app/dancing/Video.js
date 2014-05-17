@@ -1,8 +1,8 @@
 define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs"], function(Mediator, Videos, Players, Thumbs){
 	var videoContainer = $("#VideoArena");
 
-	var videoPlayer = videoContainer.find("video")[0];
-	var videoPlayerSource = videoContainer.find("source")[0];
+	var videoPlayer = videoContainer.find("video");
+	var videoPlayerSource = videoContainer.find("source");
 
 	var Dancers = {
 		"A" : "Elijah",
@@ -21,11 +21,23 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 	}
 
 	function playVideo(url, bpm, videoBPM){
-		videoPlayerSource.src = "../videos/" + url;
-		videoPlayer.load();
-		videoPlayer.playbackRate = bpm/videoBPM;
-		videoPlayer.loop = true;
-		videoPlayer.play();
+		//make a new video and source. 
+		var newVid = $("<video>").appendTo(videoContainer);
+		var newSource = $("<source>").appendTo(newVid);
+		//set the source and attributes
+		newSource[0].src = "../videos/" + url;
+		newVid[0].load();
+		newVid[0].playbackRate = bpm/videoBPM;
+		newVid[0].loop = true;
+		newVid[0].play();
+		//fade it in
+		newVid.fadeTo(1000, 1, function(){
+			//set the video to the old one
+			videoPlayer.remove();
+			videoPlayer = newVid;
+		});
+		//fade out the old one
+		videoContainer.fadeTo(0, 1000);
 		//make it visible
 		videoContainer.find("video").addClass("Visible");
 	}
