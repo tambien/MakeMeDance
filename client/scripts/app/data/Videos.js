@@ -453,6 +453,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Paulie", "Elijah"],
 			"mood" : "Intro",
+			"duration" : 22,
 			"bpm" : null
 		}, 
 		{
@@ -460,6 +461,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Elijah"],
 			"mood" : "Intro",
+			"duration" : 18,
 			"bpm" : null
 		}, 
 		{
@@ -467,6 +469,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Eljah", "Manolo"],
 			"mood" : "Intro",
+			"duration" : 21,
 			"bpm" : null
 		}, 
 		{
@@ -474,6 +477,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Paulie", "Manolo"],
 			"mood" : "Intro",
+			"duration" : 17,
 			"bpm" : null
 		}, 
 		{
@@ -481,6 +485,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Paulie"],
 			"mood" : "Intro",
+			"duration" : 19,
 			"bpm" : null
 		}, 
 		{
