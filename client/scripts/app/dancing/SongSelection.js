@@ -1,12 +1,24 @@
-define(["controller/Mediator", "dancing/Tab", "songs/HipHop", "songs/EDM", "songs/PopSongs"], 
-
-	function(Mediator, Tab, HipHop, EDM, PopSongs){
+define(["controller/Mediator", "dancing/Tab", "data/HipHop", "data/EDM", "data/PopSongs"], 
+function(Mediator, Tab, HipHop, EDM, PopSongs){
 
 	var container = $("#SongSelection");
 
 	var tabs = [];
 
 	var allSongs = [];
+
+	//add genre to the description
+	EDM.forEach(function(song){
+		song.genre = "EDM";
+	})
+	//add genre to the description
+	PopSongs.forEach(function(song){
+		song.genre = "Pop";
+	})
+	//add genre to the description
+	HipHop.forEach(function(song){
+		song.genre = "HipHop";
+	})
 	
 	//make a tab for each of the styles
 	var edm = new Tab(container.find("#EDM"), EDM, "EDM");

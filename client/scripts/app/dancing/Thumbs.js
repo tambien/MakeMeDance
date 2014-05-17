@@ -26,9 +26,9 @@ define(["controller/Mediator"], function(Mediator){
 
 	function testVote(){
 		//set the arrow level
-		if (vote >= 4){
+		if (vote >= 3){
 			Mediator.send("dancing/over", true);
-		} else if (vote <= -4){
+		} else if (vote <= -3){
 			Mediator.send("dancing/over", false);
 		} else if (vote === 0){ //set hte thumb images
 			up.css({

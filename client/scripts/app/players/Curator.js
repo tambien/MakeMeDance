@@ -1,4 +1,4 @@
-define(["controller/Mediator", "songs/Curators", "dancing/SongSelection"], function(Mediator, Curators, SongSelection){
+define(["controller/Mediator", "data/Curators", "dancing/SongSelection"], function(Mediator, Curators, SongSelection){
 
 	var inControl = false;
 	var curator = null;

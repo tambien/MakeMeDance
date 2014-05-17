@@ -1,33 +1,44 @@
-define(["controller/Mediator"], function(Mediator){
+define(["controller/Mediator", "data/Videos", "players/Players"], function(Mediator, Videos, Players){
 	var videoContainer = $("#VideoArena");
 
 	var videoPlayer = videoContainer.find("video")[0];
 	var videoPlayerSource = videoContainer.find("source")[0];
 
-	var videoCounts = {
-		"HIPHOP" : 19,
-		"POP" : 16,
-		"EDM" : 14
+	var Dancers = {
+		"A" : "Manolo",
+		"B" : "Elijah",
+		"C" : "Paulie"
 	}
 
-	Mediator.route("dancing/Song/clicked", function(song){
-		var randIndex = parseInt(Math.random() * videoCounts[song.genre], 10) + 1;
-		if (randIndex < 10){
-			randIndex = "0" + randIndex;
-		}
-		var videoUrl = ["./videos/", song.genre , "_" , randIndex , ".mp4"].join("");
-		videoPlayerSource.src = videoUrl;
+	function playVideo(url, bpm, videoBPM){
+		videoPlayerSource.src = "../videos/" + url;
 		videoPlayer.load();
-		videoPlayer.playbackRate = song.bpm/120;
+		videoPlayer.playbackRate = bpm/videoBPM;
 		videoPlayer.loop = true;
-		/*//why doesn't it loop?
-		videoPlayer.onended = function(){
-			videoPlayer.currentTime = 0;
-			videoPlayer.play();	
-		}*/
 		videoPlayer.play();
 		//make it visible
 		videoContainer.find("video").addClass("Visible");
+	}
+
+	function findVideo(dj, dancer, genre){
+		for (var i = 0; i < Videos.length; i++){
+			var vid = Videos[i];
+			if (vid.avatars[0] === dancer && vid.avatars[1] === dj && vid.genre === genre){
+				return vid;
+			}
+		}
+	}
+
+	function randomVideo (){
+		var index = parseInt(Math.random() * Videos.length, 10);
+		return Videos[index];
+	}
+
+	Mediator.route("dancing/Song/clicked", function(song){
+		var dj = Dancers[Players.getDJ()];
+		var dancer = Dancers[Players.getDancer()];
+		var video = findVideo(dj, dancer, song.genre);
+		playVideo(video.url, song.bpm, video.bpm);
 	});
 
 	Mediator.route("reset", function(){

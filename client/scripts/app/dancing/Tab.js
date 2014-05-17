@@ -12,7 +12,6 @@ define(["controller/Mediator", "dancing/Song"], function(Mediator, Song){
 
 		for (var i = 0; i < songsDescriptions.length;i++){
 			var desc = songsDescriptions[i];
-			desc.genre = genre;
 			desc.number = i+1;
 			var s = new Song(songContainer, desc);
 			this.songs.push(s);
