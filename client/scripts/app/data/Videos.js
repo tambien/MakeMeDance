@@ -453,6 +453,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Paulie", "Elijah"],
 			"mood" : "Intro",
+			"duration" : 22,
 			"bpm" : null
 		}, 
 		{
@@ -460,6 +461,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Elijah"],
 			"mood" : "Intro",
+			"duration" : 18,
 			"bpm" : null
 		}, 
 		{
@@ -467,6 +469,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Eljah", "Manolo"],
 			"mood" : "Intro",
+			"duration" : 21,
 			"bpm" : null
 		}, 
 		{
@@ -474,6 +477,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Paulie", "Manolo"],
 			"mood" : "Intro",
+			"duration" : 17,
 			"bpm" : null
 		}, 
 		{
@@ -481,6 +485,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Paulie"],
 			"mood" : "Intro",
+			"duration" : 19,
 			"bpm" : null
 		}, 
 		{
@@ -502,6 +507,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Paulie", "Elijah"],
 			"mood" : "Out_Up",
+			"duration" : 9,
 			"bpm" : null
 		}, 
 		{
@@ -509,6 +515,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Elijah"],
 			"mood" : "Out_Up",
+			"duration" : 9,
 			"bpm" : null
 		}, 
 		{
@@ -516,6 +523,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Paulie"],
 			"mood" : "Out_Up",
+			"duration" : 7,
 			"bpm" : null
 		}, 
 		{
@@ -523,6 +531,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Paulie"],
 			"mood" : "Out_Down",
+			"duration" : 17,
 			"bpm" : null
 		},
 		{
@@ -530,6 +539,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Manolo", "Elijah"],
 			"mood" : "Out_Down",
+			"duration" : 8,
 			"bpm" : null
 		},
 		{
@@ -537,6 +547,7 @@ define(function(){
 			"genre" : "", 
 			"avatars" : ["Elijah", "Paulie"],
 			"mood" : "Out_Up",
+			"duration" : 9,
 			"bpm" : null
 		}
 

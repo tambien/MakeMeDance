@@ -81,7 +81,7 @@ define(["controller/Mediator", "players/Player", "players/Curator"], function(Me
 		amMatched = true;
 		setTimeout(function(){
 			Mediator.send("player/them/arrived", true);
-		}, 2000);
+		}, 3000);
 	}
 
 

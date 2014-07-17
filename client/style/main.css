@@ -226,7 +226,7 @@ a:hover {
   left: 0px; }
 
 #SongPanel #SongSelection #Title {
-  width: calc(100% / 3);
+  width: 100%;
   height: 35px;
   line-height: 35px;
   position: absolute;
@@ -507,10 +507,10 @@ a:hover {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 108.33333px;
+  height: 650px;
   text-align: center;
   color: white;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   font-size: 18px;
   z-index: 10;
   opacity: 0;
@@ -520,12 +520,12 @@ a:hover {
 
 #PlayerText #Text {
   position: absolute;
-  top: 50%;
+  top: 0px;
   left: 50%;
   width: 400px;
   height: 100px;
   margin-left: -200px;
-  margin-top: -25px;
+  margin-top: 25px;
   text-align: center;
   color: white;
   font-size: 18px;
@@ -544,7 +544,7 @@ a:hover {
   top: 0px;
   left: 0px;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   opacity: 0;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
@@ -574,9 +574,6 @@ a:hover {
   top: 50%;
   opacity: 0;
   -webkit-transform: translate(0, -50%); }
-
-#VideoArena video.Visible {
-  opacity: 1; }
 
 /*=============================================================================
 	CLOCK
@@ -795,13 +792,13 @@ a:hover {
   left: 65px; }
 
 #Compatible .Avatar.A {
-  background-image: url("../images/A.png"); }
+  background-image: url("../images/GIF-ELIAH-2.gif"); }
 
 #Compatible .Avatar.B {
-  background-image: url("../images/B.png"); }
+  background-image: url("../images/GIF-PAULIE.gif"); }
 
 #Compatible .Avatar.C {
-  background-image: url("../images/C.png"); }
+  background-image: url("../images/GIF-MANOLO.gif"); }
 
 #Compatible #Check {
   position: absolute;

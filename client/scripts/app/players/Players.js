@@ -1,4 +1,4 @@
-define(["controller/Mediator", "players/Them", "players/You"], function(Mediator){
+define(["controller/Mediator", "players/Them", "players/You"], function(Mediator, Them, You){
 
 	var players = [];
 	var currentPlayerIndex = 0;
@@ -37,7 +37,25 @@ define(["controller/Mediator", "players/Them", "players/You"], function(Mediator
 	});
 
 	//listen for the thumbs up/down
-	Mediator.route("dancing/voted", function(){
-		takeTurn();
-	});
+	Mediator.route("dancing/takeTurn", takeTurn);
+
+	return {
+		getDJ : function(){
+			var playerStr = players[currentPlayerIndex];
+			if (playerStr === 'you'){
+				return You.avatar;
+			} else {
+				return Them.avatar;
+			}
+		},
+		getDancer : function(){
+			var otherIndex = (currentPlayerIndex + 1) % 2;
+			var playerStr = players[otherIndex];
+			if (playerStr === 'you'){
+				return You.avatar;
+			} else {
+				return Them.avatar;
+			}
+		}
+	}
 })

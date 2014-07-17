@@ -1,7 +1,7 @@
 $DancingHeight : 650px;
 $DancingWidth : 1000px;
 $DancingScreenMargin : 20px;
-$BlockerBackground : rgba(0, 0, 0, .6);
+$BlockerBackground : transparent;
 $SongPanelWidth : 400px;
 $TabTitleHeight : 35px;
 $ClockSize : 70px;
@@ -78,7 +78,7 @@ $ClockSize : 70px;
 
 
 #SongPanel #SongSelection #Title{
-	width: calc(100% / 3);
+	width: 100%;
 	height: $TabTitleHeight;
 	line-height: $TabTitleHeight;
 	position: absolute;
@@ -417,7 +417,7 @@ $ThumbHeight : 80px;
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: $DancingHeight/6;
+	height: $DancingHeight;
 	text-align: center;
 	color: $white;
 	background-color: $BlockerBackground;
@@ -430,12 +430,12 @@ $ThumbHeight : 80px;
 
 #PlayerText #Text{
 	position: absolute;
-	top: 50%;
+	top: 0px;
 	left: 50%;
 	width: 400px;
 	height: 100px;
 	margin-left: -200px;
-	margin-top: -25px;
+	margin-top: 25px;
 	text-align: center;
 	color: $white;
 	font-size: 18px;
@@ -490,7 +490,7 @@ $ThumbHeight : 80px;
 }
 
 #VideoArena  video.Visible{
-	opacity: 1;
+
 }
 
 /*=============================================================================

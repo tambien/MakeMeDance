@@ -26,10 +26,10 @@ define(["controller/Mediator"], function(Mediator){
 
 	function testVote(){
 		//set the arrow level
-		if (vote >= 4){
-			Mediator.send("dancing/over", true);
-		} else if (vote <= -4){
-			Mediator.send("dancing/over", false);
+		if (vote >= 3){
+			Mediator.send("dancing/outro", true);
+		} else if (vote <= -3){
+			Mediator.send("dancing/outro", false);
 		} else if (vote === 0){ //set hte thumb images
 			up.css({
 				"background" : "url('../images/Up_0.png')"
@@ -46,6 +46,9 @@ define(["controller/Mediator"], function(Mediator){
 				"background" : "url('../images/Up_"+vote+".png')"
 			});
 		}
+		if (Math.abs(vote) < 3){
+			Mediator.send("dancing/takeTurn");
+		}
 	}
 
 	Mediator.route("reset", function(){
@@ -53,5 +56,10 @@ define(["controller/Mediator"], function(Mediator){
 		testVote();
 	});
 
+	return {
+		getVote : function(){
+			return vote;
+		}
+	}
 
-})
+});
