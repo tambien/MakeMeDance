@@ -7,6 +7,8 @@ define(["controller/Mediator"], function(Mediator){
 
 	Mediator.route("dancing/Song/clicked", getSongJSON);
 
+	Mediator.route("dancing/Song/stop", stopSong);
+
 	function getSongJSON(song){
 		var spotifyJSON = "https://api.spotify.com/v1/tracks/"+song.uri;
 		jQuery.getJSON(spotifyJSON, playSong)
@@ -19,4 +21,9 @@ define(["controller/Mediator"], function(Mediator){
 		audioEl.attr("play");
 		selectSong.remove();
 	}
+
+	function stopSong(){
+		audioEl.attr("stop");
+	}
+
 })

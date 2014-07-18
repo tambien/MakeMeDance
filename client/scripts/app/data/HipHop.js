@@ -39,7 +39,7 @@ define(function(){
 		},{
 			artist : "Kanye West",
 			track : "Stronger",
-			uri : "5WQ1hIc5d2EVbRQ8qsj8Uh",
+			uri : "24H5KPBdSvHQMRXTp12K3J",
 			bpm : 116.367
 		},{
 			artist : "Missy Elliot",
