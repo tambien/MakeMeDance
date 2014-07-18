@@ -59,7 +59,7 @@ var onlinePlayers = {};
 wss.on('connection', function(ws) {
 	//add this player to the players
 	var player = new Player(ws);
-	console.log("new player: "+player.id);
+	console.log("new player: "+player.id + " Spotify Data: " + player.spotData.id + " " + player.spotData.external_urls.spotify);
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -71,6 +71,7 @@ var onlinePlayerIDs = 0;
 var Player = function(ws){
 	this.id = onlinePlayerIDs++;
 	this.ws = ws;
+	this.spotData = spotData;
 	this.partner = null;
 	this.timeout = -1;
 	//listen for events
@@ -167,6 +168,13 @@ Player.prototype.reset = function(){
 ///////////////////////////////////////////////////////////////////////////////
 var client_secret = process.env.spotSecret;
 var client_id = process.env.spotID;
+
+var spotData = {}; // this will contain all data for the session
+
+if (!client_id || !client_secret){
+	console.log('Error: Missing environemnt variables for the Spotify API');
+}
+
 if (port === 5000) {
 	var redirect_uri = 'http://localhost:5000/callback'; // Your redirect uri
 } else {
@@ -205,7 +213,6 @@ app.get('/login', function(req, res) {
       state: state
     }));
 });
-
 
 app.get('/callback', function(req, res) {
 
@@ -252,16 +259,11 @@ app.get('/callback', function(req, res) {
           console.log(body.external_urls.spotify);
           console.log(body.images[0].url);
           body.userImgUrl = body.images[0].url;
-          res.render(__dirname + '/client/index', body);
+          spotData = body;
+          // render index.html with handlebars
+          res.render(__dirname + '/client/index', spotData);
         });
 
-        // var template = handlebars.compile('/index');
-        // we can also pass the token to the browser to make requests from there
-        // res.redirect('/#' +
-        //   querystring.stringify({
-        //     access_token: access_token,
-        //     refresh_token: refresh_token
-        //   }));
       } else {
         res.redirect('/#' +
           querystring.stringify({

@@ -42,6 +42,18 @@ $SelectionTitleHeight : 70px;
 	color: $white;
 }
 
+#Selection #Username {
+	width: 790px;
+	position: absolute;
+	text-align: left;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	bottom: 0px;
+	right: 10px;
+	color: $white;
+}
+
 #Selection #Avatars {
 	position: absolute;
 	top: 70px;

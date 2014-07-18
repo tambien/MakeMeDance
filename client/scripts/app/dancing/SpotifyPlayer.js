@@ -7,7 +7,7 @@ define(["controller/Mediator"], function(Mediator){
 
 	Mediator.route("dancing/Song/clicked", getSongJSON);
 
-	Mediator.route("dancing/Song/stop", stopSong);
+	// Mediator.route("dancing/Song/stop", stopSong);
 
 	function getSongJSON(song){
 		var spotifyJSON = "https://api.spotify.com/v1/tracks/"+song.uri;
@@ -17,13 +17,15 @@ define(["controller/Mediator"], function(Mediator){
 	function playSong(data){
 		var srcStr = data.preview_url;
 		audioEl.attr("src", srcStr);
-		audioEl.currentTime = 0;
-		audioEl.attr("play");
+		// audioEl[0].currentTime = 0;
 		selectSong.remove();
 	}
 
-	function stopSong(){
-		audioEl.attr("stop");
+	function stopSong(stop){
+		audioEl.attr("src", null);
+    audioEl[0].pause();
+    audioEl[0].looping = false;
+		console.log('stopped song!');
 	}
 
 })

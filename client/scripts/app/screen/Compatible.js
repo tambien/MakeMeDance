@@ -7,6 +7,7 @@ define(["controller/Mediator", "screen/Screen", "players/Them", "players/You"], 
 		dancing.element.find("#Avatar0").addClass(Them.avatar);
 		dancing.element.find("#Avatar1").addClass(You.avatar);
 		console.log(Them.avatar, You.avatar);
+		Mediator.send("dancing/SpotifyPlayer/stop");
 	});
 
 	Mediator.route("screen/Compatible/disappear", function(){

@@ -140,7 +140,6 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 
 	Mediator.route("reset", function(){
 		lastGenre = "Intro";
-		videoPlayer.pause();
 		videoPlayerSource.src = "";
 		videoContainer.find("video").removeClass("Visible");
 	});

@@ -13,6 +13,11 @@ define(["controller/Mediator"], function(Mediator){
 		container.delay(300).addClass(this.name);
 		this.element.delay(300).addClass("Visible");
 		this.element.delay(300).fadeTo(500, 1);
+		// if we're done, stop the music!
+		if (container === "Incompatible" || container === "Compatible"){
+			Mediator.send("dancing/SpotifyPlayer/stop");
+			console.log('done sending!!!');
+		}
 	}
 
 	Screen.prototype.disappear = function(container){
