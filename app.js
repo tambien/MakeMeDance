@@ -107,10 +107,13 @@ Player.prototype.recv = function(msg){
 		if (this.partner !== null){
 			this.partner.send(msg);
 		}
-	} else if (msg.command = "reset"){
+	} else if (msg.command === "reset"){
+		//if it's a request to reconnect
 		this.reset();
+	} else if (msg.command === "username"){
+		// share username/info with partner
+		this.partner.send(msg);
 	}
-	//if it's a request to connect
 }
 
 Player.prototype.findMatch = function(){
@@ -248,6 +251,7 @@ app.get('/callback', function(req, res) {
           console.log(body.id);
           console.log(body.external_urls.spotify);
           console.log(body.images[0].url);
+          body.userImgUrl = body.images[0].url;
           res.render(__dirname + '/client/index', body);
         });
 

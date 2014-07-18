@@ -32,8 +32,8 @@
 		<div id='Launch'>
 
 
-			<div id='Text'>
 			{{#if id}}
+			<div id='SubText'>
 				Logged in as <a href="{{external_urls.spotify}}">{{id}}</a>
 				<img src="{{userImgUrl}}">
 				</div>
@@ -41,6 +41,7 @@
 					START
 				</div>
 			{{else}}
+				<div id='Text'>
 				<a href="/login">LOG IN TO SPOTIFY</a>
 				</div>
 				<div id='DontHave'>
