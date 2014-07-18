@@ -11,4 +11,5 @@ var client_id = process.env.spotID;
 ```
 
 CSS compiles with SASS:
-```sass --watch style/:style/main.css```
+
+```sass --watch client/style/main.scss:client/style/main.css```
