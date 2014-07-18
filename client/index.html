@@ -31,25 +31,29 @@
 		<!-- LAUNCH -->
 		<div id='Launch'>
 
+
 			<div id='Text'>
+			{{#if id}}
+				Logged in as <a href="{{external_urls.spotify}}">{{id}}</a>
+				<img src="{{userImgUrl}}">
+				</div>
+				<div class='Button'>
+					START
+				</div>
+			{{else}}
 				<a href="/login">LOG IN TO SPOTIFY</a>
-			</div>
-			<div id='SubText'>
-			Logged in as {{id}}
-			<img src="{{external_urls.spotify}}">
-<!-- 				USERNAME  <input></input><br>
-				PASSWORD  <input></input><br>
- -->				
-			</div>
+				</div>
+				<div id='DontHave'>
+					Don't have Spotify?
+					<a href="https://www.spotify.com/signup/">Sign Up</a>
+				</div>
 
-			<div id='DontHave'>
-				Don't have Spotify?
-				<a href="https://www.spotify.com/signup/">Sign Up</a>
-			</div>
+			{{/if}}
 
-			<div class='Button'>
-				LOG IN
-			</div>
+
+
+
+
 		</div>
 
 		<!-- LOADING -->

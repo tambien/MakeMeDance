@@ -6,10 +6,22 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 var handlebars = require('hbs');
+
+// set view engine to use handlebars
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //	ROUTES
 ///////////////////////////////////////////////////////////////////////////////
 	
+app.get('/', function(req, res){
+	var body = {};
+	body.id = null;
+	res.render(__dirname + '/client/index', body);
+});
+
 //get the number of players online
 app.get('/playercount', function(req, res){
 	var count = 0;
@@ -191,9 +203,6 @@ app.get('/login', function(req, res) {
     }));
 });
 
-// set view engine to use handlebars
-app.set('view engine', 'html');
-app.engine('html', require('hbs').__express);
 
 app.get('/callback', function(req, res) {
 
