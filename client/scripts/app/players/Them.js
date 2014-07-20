@@ -57,7 +57,7 @@ define(["controller/Mediator", "players/Player", "players/Curator"], function(Me
 
 	function getUserInfo(){
 		var playerLabels = $("#PlayerLabels");
-		playerLabels.find(".themLabel").append("<a href=&quot; https://open.spotify.com/user/" +player.spotifyUser + "&quot;>"+player.spotifyUser+"</a>");
+		playerLabels.find(".themLabel").html("THEM: <a href='https://open.spotify.com/user/" +player.spotifyUser + "'>"+player.spotifyUser+"</a>");
 		return player;
 	}
 

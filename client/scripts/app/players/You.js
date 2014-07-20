@@ -27,7 +27,7 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 
 	function getUserInfo(){
 		var playerLabels = $("#PlayerLabels");
-		playerLabels.find(".youLabel").append("<a href=&quot; https://open.spotify.com/user/" +player.data.id + "&quot;>"+player.data.id+"</a>");
+		playerLabels.find(".youLabel").html("YOU: <a href='https://open.spotify.com/user/" +player.data.id + "'>"+player.data.id+"</a>");
 		console.log(player);
 		return player;
 	}
