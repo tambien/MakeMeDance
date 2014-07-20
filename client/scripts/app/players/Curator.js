@@ -50,6 +50,9 @@ define(["controller/Mediator", "data/Curators", "dancing/SongSelection"], functi
 		getName : function(){
 			return curator.name;
 		},
+		getSpotifyUser : function(){
+			return curator.spotifyuser;
+		},
 		makeSelection : makeSelection,
 		inControl : function(){
 			return inControl;

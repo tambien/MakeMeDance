@@ -21,7 +21,7 @@
 	<div id="TopBar">
 		<div id="Logo"></div>
 		<div id="About">realtime collaborative playlists</div> <!--not sure where to put this-->
-		<div id="Spotify"></div>	
+		<div id="Spotify"></div>
 	</div>
 
 
@@ -37,6 +37,7 @@
 					Hi, <a href="{{external_urls.spotify}}">{{id}}</a>!
 				</div>
 				<div id="SubText">
+
 					<!-- <img src="{{userImgUrl}}"> -->
 				</div>
 					<div class='Button'>
@@ -53,10 +54,6 @@
 
 			{{/if}}
 
-
-
-
-
 		</div>
 
 		<!-- LOADING -->
@@ -66,7 +63,7 @@
 		<div id='Selection'>
 			<div id="Title">CHOOSE YOUR AVATAR</div>
 			<div id="Avatars"></div>
-			<div id="Username">Signed in as: {{id}}</div>
+			<div id="Username">Signed in as: <a href="{{external_urls.spotify}}">{{id}}</a></div>
 			<div id="Count"></div>
 		</div>
 
@@ -130,7 +127,7 @@
 						<div id='Songs'></div>
 					</div>
 					<div id='PlayerLabels'>
-						<div id='Label0' class='PlayerLabel'></div>
+						<div id='Label0' class='PlayerLabel'></div><br/>
 						<div id='Label1' class='PlayerLabel'></div>
 					</div>
 				</div>
@@ -143,7 +140,8 @@
 				</div>
 
 				<!-- BLOCKER -->
-				<div id="PlayerBlocker"></div>
+				<div id="PlayerBlocker">
+				</div>
 
 			</div>
 		</div>

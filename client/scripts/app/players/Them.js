@@ -16,9 +16,16 @@ define(["controller/Mediator", "players/Player", "players/Curator"], function(Me
 	websocket.onmessage = function(msg){
 		//route all the messages
 		msg = JSON.parse(msg.data);
+		console.log(msg);
+		if (msg.partnerSpotData){
+			player.spotData = msg.partnerSpotData;
+			player.spotifyUser = msg.partnerSpotData.id;
+			console.log(player.spotifyUser);
+		}
 		if (msg.command === "match" && !amMatched){
 			amMatched = true;
 			Mediator.send("player/them/arrived", msg.meFirst);
+			console.log
 			clearTimeout(curTimeout);
 		} else if (msg.command === "song" && amMatched && themTurn){
 			//got a song from the other person
@@ -45,6 +52,15 @@ define(["controller/Mediator", "players/Player", "players/Curator"], function(Me
 	}
 
 	Mediator.route("player/them/takeTurn", takeTurn);
+
+	Mediator.route("player/them/getUserInfo", getUserInfo);
+
+	function getUserInfo(){
+		var playerLabels = $("#PlayerLabels");
+		playerLabels.find(".themLabel").append("<a href=&quot; https://open.spotify.com/user/" +player.spotifyUser + "&quot;>"+player.spotifyUser+"</a>");
+		return player;
+	}
+
 
 	Mediator.route("dancing/Song/clicked", function(msg){
 		if (themTurn){
@@ -78,6 +94,8 @@ define(["controller/Mediator", "players/Player", "players/Curator"], function(Me
 		amMatched = true;
 		sendReset();
 		player.setText("You will be matched with MakeMeDance Curator : "+Curator.getName());
+		player.spotifyUser = Curator.getSpotifyUser();
+		console.log(player.spotifyUser);
 		amMatched = true;
 		setTimeout(function(){
 			Mediator.send("player/them/arrived", true);

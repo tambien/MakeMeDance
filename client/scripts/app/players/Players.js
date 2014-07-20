@@ -8,12 +8,17 @@ define(["controller/Mediator", "players/Them", "players/You"], function(Mediator
 		//color the selections
 		if (meFirst){
 			//first player is You,
-			playerLabels.find("#Label0").text("YOU");
-			playerLabels.find("#Label1").text("THEM");
+			playerLabels.find("#Label0").text("YOU: ");
+			playerLabels.find("#Label0").addClass("youLabel");
+			playerLabels.find("#Label1").text("THEM: ");
+			playerLabels.find("#Label1").addClass("themLabel");
 			players = ["you", "them"];
 		} else {
-			playerLabels.find("#Label0").text("THEM");
-			playerLabels.find("#Label1").text("YOU");
+			playerLabels.find("#Label0").text("THEM: ");
+			playerLabels.find("#Label0").addClass("themLabel");
+			playerLabels.find("#Label1").text("YOU: ");
+			playerLabels.find("#Label1").addClass("youLabel");
+
 			players = ["them", "you"];
 		}
 		playerLabels.addClass("Visible");
@@ -28,6 +33,9 @@ define(["controller/Mediator", "players/Them", "players/You"], function(Mediator
 
 	Mediator.route("player/them/arrived", function(meFirst){
 		setPlayerOrder(meFirst);
+		// add usernames to the screen
+		Mediator.send("player/them/getUserInfo");
+		Mediator.send("player/you/getUserInfo");
 	});
 
 	Mediator.route("reset", function(meFirst){

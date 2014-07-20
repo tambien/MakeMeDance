@@ -20,6 +20,9 @@ app.get('/', function(req, res){
 	var body = {};
 	body.id = null;
 	res.render(__dirname + '/client/index', body);
+	// // login automatically
+	// console.log(req.cookies);
+	// res.redirect('/login');
 });
 
 //get the number of players online
@@ -29,6 +32,16 @@ app.get('/playercount', function(req, res){
 		count++;
 	}
 	res.send({"count" : count});
+});
+
+//get the logged in user info
+app.get('/userinfo', function(req, res){
+	res.send({"spotData" : spotData});
+});
+
+//get the logged in user info
+app.get('/partnerinfo', function(req, res){
+	res.send({"partnerinfo" : this.partner});
 });
 
 //static files
@@ -59,7 +72,11 @@ var onlinePlayers = {};
 wss.on('connection', function(ws) {
 	//add this player to the players
 	var player = new Player(ws);
-	console.log("new player: "+player.id + " Spotify Data: " + player.spotData.id + " " + player.spotData.external_urls.spotify);
+	if (player.spotData.external_urls) {
+		console.log("new player: "+player.id + " Spotify Data: " + player.spotData.id + " " + player.spotData.external_urls.spotify);
+	}else {
+		console.log("new player: "+player.id);
+	}
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -113,7 +130,7 @@ Player.prototype.recv = function(msg){
 		this.reset();
 	} else if (msg.command === "username"){
 		// share username/info with partner
-		this.partner.send(msg);
+		this.partner.send(this);
 	}
 }
 
@@ -131,13 +148,13 @@ Player.prototype.findMatch = function(){
 			}
 		} 
 	}
-	//if there are none, set a timeout and try again in a minute
+	//if there are none, set a timeout and try again in a second
 	this.timeout = setTimeout(this.findMatch.bind(this), 1000);
 }
 
 Player.prototype.matched = function(partner, first){
 	this.partner = partner;
-	var reply = {"command" : "match", "partner" : this.partner.id, "meFirst" : first};
+	var reply = {"command" : "match", "partner" : this.partner.id, "meFirst" : first, "partnerSpotData" : partner.spotData};
 	this.send(reply);
 	clearTimeout(this.timeout);
 }
@@ -221,7 +238,6 @@ app.get('/callback', function(req, res) {
   var code = req.query.code || null;
   var state = req.query.state || null;
   // var storedState = req.cookies ? req.cookies[stateKey] : null;
-
   if (state === null || state !== storedState) {
     res.redirect('/#' +
       querystring.stringify({
@@ -259,6 +275,7 @@ app.get('/callback', function(req, res) {
           console.log(body.external_urls.spotify);
           console.log(body.images[0].url);
           body.userImgUrl = body.images[0].url;
+
           spotData = body;
           // render index.html with handlebars
           res.render(__dirname + '/client/index', spotData);
@@ -275,7 +292,6 @@ app.get('/callback', function(req, res) {
 });
 
 app.get('/success', function(req, res) {
-	// console.log(req);
 	res.redirect('/#');
 });
 
