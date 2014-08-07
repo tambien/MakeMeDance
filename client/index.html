@@ -21,7 +21,7 @@
 	<div id="TopBar">
 		<div id="Logo"></div>
 		<div id="About">realtime collaborative playlists</div> <!--not sure where to put this-->
-		<div id="Spotify"></div>	
+		<div id="Spotify"></div>
 	</div>
 
 
@@ -31,20 +31,29 @@
 		<!-- LAUNCH -->
 		<div id='Launch'>
 
-			<div id='Text'>
-				<a href="https://play.spotify.com/user/talkscheap/playlist/7uk3G5kGrCQ6CHEi404K8J" target="_blank">LAUNCH SPOTIFY</a>
-			</div>
-			<div id='SubText'>
-				Click START after it's open
-			</div>
 
-			<div id='DontHave'>
-				Don't have Spotify?
-				<a href="https://www.spotify.com/download/">Download it</a>
-			</div>
-			<div class='Button'>
-				START
-			</div>
+			{{#if id}}
+				<div id="Text">
+					Hi, <a href="{{external_urls.spotify}}">{{id}}</a>!
+				</div>
+				<div id="SubText">
+
+					<!-- <img src="{{userImgUrl}}"> -->
+				</div>
+					<div class='Button'>
+					MAKE ME DANCE
+				</div>
+			{{else}}
+				<div id='Text'>
+				<a href="/login">LOG IN TO SPOTIFY</a>
+				</div>
+				<div id='DontHave'>
+					Don't have Spotify?
+					<a href="https://www.spotify.com/signup/">Sign Up</a>
+				</div>
+
+			{{/if}}
+
 		</div>
 
 		<!-- LOADING -->
@@ -54,6 +63,7 @@
 		<div id='Selection'>
 			<div id="Title">CHOOSE YOUR AVATAR</div>
 			<div id="Avatars"></div>
+			<div id="Username">Signed in as: <a href="{{external_urls.spotify}}">{{id}}</a></div>
 			<div id="Count"></div>
 		</div>
 
@@ -68,7 +78,7 @@
 				</div>
 				<!-- PLAYER -->
 				<div id='SpotifyPlayer'>
-					<iframe src="" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+					<audio loop autoplay src="" hidden></audio>
 					<div id='Blocker'>Waiting for Selection</div>
 				</div>
 				<!-- THUMBS -->
@@ -117,7 +127,7 @@
 						<div id='Songs'></div>
 					</div>
 					<div id='PlayerLabels'>
-						<div id='Label0' class='PlayerLabel'></div>
+						<div id='Label0' class='PlayerLabel'></div><br/>
 						<div id='Label1' class='PlayerLabel'></div>
 					</div>
 				</div>
@@ -130,7 +140,8 @@
 				</div>
 
 				<!-- BLOCKER -->
-				<div id="PlayerBlocker"></div>
+				<div id="PlayerBlocker">
+				</div>
 
 			</div>
 		</div>

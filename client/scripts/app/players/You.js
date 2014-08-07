@@ -15,6 +15,23 @@ define(["controller/Mediator", "players/Player"], function(Mediator, Player){
 
 	Mediator.route("player/you/takeTurn", takeTurn);
 
+	Mediator.route("player/you/setUserInfo", setUserInfo);
+
+	function setUserInfo(data){
+		player.data = data;
+		console.log("setting user info");
+		console.log(this.data);
+	}
+
+	Mediator.route("player/you/getUserInfo", getUserInfo);
+
+	function getUserInfo(){
+		var playerLabels = $("#PlayerLabels");
+		playerLabels.find(".youLabel").html("YOU: <a href='https://open.spotify.com/user/" +player.data.id + "'>"+player.data.id+"</a>");
+		console.log(player);
+		return player;
+	}
+
 	function pickedSong(){
 		if (!songSelected){
 			songSelected = true;

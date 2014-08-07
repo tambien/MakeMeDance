@@ -11,6 +11,18 @@ define(["controller/Mediator", "screen/Launch", "screen/Loading", "screen/Dancin
 	Mediator.route("allLoaded", function(){
 		//after it's loaded, go to the launch screen
 		// transition("Loading", "Launch");
+		// 
+		// 
+		//get the user info
+		$.ajax({
+			url: window.location.origin + "/userinfo",
+			type : "GET",
+			success: function(data){
+				console.log(data.spotData);
+				Mediator.send("player/you/setUserInfo", data.spotData);
+			},
+			dataType: "json"
+		});
 	});
 
 	//when launch is clicked, go to the play screen	

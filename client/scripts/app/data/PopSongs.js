@@ -275,7 +275,7 @@ define(function(){
 		{
 			artist: "Bastille",
 			track: "Pompeii",
-			uri: "7EQ0qTo7fWT7DPxmxtSYEc",
+			uri: "7Fw5i56my24ZBnGS7hFX2n",
 			bpm: 129.173
 		}
 

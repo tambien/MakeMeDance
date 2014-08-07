@@ -2,11 +2,29 @@ var express = require('express');
 var app = express();
 var http = require('http')
 var WebSocketServer = require('ws').Server
+var request = require('request'); // "Request" library
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
+var handlebars = require('hbs');
+
+// set view engine to use handlebars
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //	ROUTES
 ///////////////////////////////////////////////////////////////////////////////
 	
+app.get('/', function(req, res){
+	var body = {};
+	body.id = null;
+	res.render(__dirname + '/client/index', body);
+	// // login automatically
+	// console.log(req.cookies);
+	// res.redirect('/login');
+});
+
 //get the number of players online
 app.get('/playercount', function(req, res){
 	var count = 0;
@@ -14,6 +32,16 @@ app.get('/playercount', function(req, res){
 		count++;
 	}
 	res.send({"count" : count});
+});
+
+//get the logged in user info
+app.get('/userinfo', function(req, res){
+	res.send({"spotData" : spotData});
+});
+
+//get the logged in user info
+app.get('/partnerinfo', function(req, res){
+	res.send({"partnerinfo" : this.partner});
 });
 
 //static files
@@ -44,7 +72,11 @@ var onlinePlayers = {};
 wss.on('connection', function(ws) {
 	//add this player to the players
 	var player = new Player(ws);
-	console.log("new player: "+player.id);
+	if (player.spotData.external_urls) {
+		console.log("new player: "+player.id + " Spotify Data: " + player.spotData.id + " " + player.spotData.external_urls.spotify);
+	}else {
+		console.log("new player: "+player.id);
+	}
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -56,6 +88,7 @@ var onlinePlayerIDs = 0;
 var Player = function(ws){
 	this.id = onlinePlayerIDs++;
 	this.ws = ws;
+	this.spotData = spotData;
 	this.partner = null;
 	this.timeout = -1;
 	//listen for events
@@ -92,10 +125,13 @@ Player.prototype.recv = function(msg){
 		if (this.partner !== null){
 			this.partner.send(msg);
 		}
-	} else if (msg.command = "reset"){
+	} else if (msg.command === "reset"){
+		//if it's a request to reconnect
 		this.reset();
+	} else if (msg.command === "username"){
+		// share username/info with partner
+		this.partner.send(this);
 	}
-	//if it's a request to connect
 }
 
 Player.prototype.findMatch = function(){
@@ -112,13 +148,13 @@ Player.prototype.findMatch = function(){
 			}
 		} 
 	}
-	//if there are none, set a timeout and try again in a minute
+	//if there are none, set a timeout and try again in a second
 	this.timeout = setTimeout(this.findMatch.bind(this), 1000);
 }
 
 Player.prototype.matched = function(partner, first){
 	this.partner = partner;
-	var reply = {"command" : "match", "partner" : this.partner.id, "meFirst" : first};
+	var reply = {"command" : "match", "partner" : this.partner.id, "meFirst" : first, "partnerSpotData" : partner.spotData};
 	this.send(reply);
 	clearTimeout(this.timeout);
 }
@@ -143,3 +179,142 @@ Player.prototype.reset = function(){
 	this.ready = false;
 	clearTimeout(this.timeout);
 }
+
+///////////////////////////////////////////////////////////////////////////////
+//	SPOTIFY API
+///////////////////////////////////////////////////////////////////////////////
+var client_secret = process.env.spotSecret;
+var client_id = process.env.spotID;
+
+var spotData = {}; // this will contain all data for the session
+
+if (!client_id || !client_secret){
+	console.log('Error: Missing environemnt variables for the Spotify API');
+}
+
+if (port === 5000) {
+	var redirect_uri = 'http://localhost:5000/callback'; // Your redirect uri
+} else {
+	var redirect_uri = 'http://makemedance.herokuapp.com/callback';
+}
+
+
+var generateRandomString = function(length) {
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+};
+
+var stateKey = 'spotify_auth_state';
+var storedState;
+app.use(cookieParser());
+
+app.get('/login', function(req, res) {
+
+  var state = generateRandomString(16);
+  storedState = state;
+  res.cookie(stateKey, state);
+
+  // your application requests authorization
+  var scope = 'user-read-private user-read-email';
+  res.redirect('https://accounts.spotify.com/authorize?' +
+    querystring.stringify({
+      response_type: 'code',
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state
+    }));
+});
+
+app.get('/callback', function(req, res) {
+
+  // your application requests refresh and access tokens
+  // after checking the state parameter
+  var code = req.query.code || null;
+  var state = req.query.state || null;
+  // var storedState = req.cookies ? req.cookies[stateKey] : null;
+  if (state === null || state !== storedState) {
+    res.redirect('/#' +
+      querystring.stringify({
+        error: 'state_mismatch'
+      }));
+  } else {
+    res.clearCookie(stateKey);
+    var authOptions = {
+      url: 'https://accounts.spotify.com/api/token',
+      form: {
+        code: code,
+        redirect_uri: redirect_uri,
+        grant_type: 'authorization_code',
+        client_id: client_id,
+        client_secret: client_secret
+      },
+      json: true
+    };
+
+    request.post(authOptions, function(error, response, body) {
+      if (!error && response.statusCode === 200) {
+
+        var access_token = body.access_token,
+            refresh_token = body.refresh_token;
+
+        var options = {
+          url: 'https://api.spotify.com/v1/me',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          json: true
+        };
+
+        // use the access token to access the Spotify Web API
+        request.get(options, function(error, response, body) {
+          console.log(body.id);
+          console.log(body.external_urls.spotify);
+          console.log(body.images[0].url);
+          body.userImgUrl = body.images[0].url;
+
+          spotData = body;
+          // render index.html with handlebars
+          res.render(__dirname + '/client/index', spotData);
+        });
+
+      } else {
+        res.redirect('/#' +
+          querystring.stringify({
+            error: 'invalid_token'
+          }));
+      }
+    });
+  }
+});
+
+app.get('/success', function(req, res) {
+	res.redirect('/#');
+});
+
+app.get('/refresh_token', function(req, res) {
+
+  // requesting access token from refresh token
+  var refresh_token = req.query.refresh_token;
+  var authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
+    form: {
+      grant_type: 'refresh_token',
+      refresh_token: refresh_token
+    },
+    json: true
+  };
+
+  request.post(authOptions, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      var access_token = body.access_token;
+      res.send({
+        'access_token': access_token
+      });
+    }
+  });
+});

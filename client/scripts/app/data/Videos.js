@@ -549,6 +549,14 @@ define(function(){
 			"mood" : "Out_Up",
 			"duration" : 9,
 			"bpm" : null
+		},
+		{
+			"url" : "Out_06EP_Up.mp4", 
+			"genre" : "", 
+			"avatars" : ["Elijah", "Paulie"],
+			"mood" : "Out_Down",
+			"duration" : 9,
+			"bpm" : null
 		}
 
 			];

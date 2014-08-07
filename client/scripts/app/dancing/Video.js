@@ -58,6 +58,7 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 
 	function findOutro(dj, dancer, compatible){
 		var vidMood = compatible ? "Out_Up" : "Out_Down";
+		console.log('OUTRO: ' + compatible + ' MOOD: ' + vidMood);
 		for (var i = 0; i < Videos.length; i++){
 			var vid = Videos[i];
 			if (vid.avatars.indexOf(dj) !== -1 && vid.avatars.indexOf(dancer) !== -1 && vid.mood === vidMood){
@@ -139,7 +140,6 @@ define(["controller/Mediator", "data/Videos", "players/Players", "dancing/Thumbs
 
 	Mediator.route("reset", function(){
 		lastGenre = "Intro";
-		videoPlayer.pause();
 		videoPlayerSource.src = "";
 		videoContainer.find("video").removeClass("Visible");
 	});

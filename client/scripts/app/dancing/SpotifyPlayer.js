@@ -2,14 +2,30 @@ define(["controller/Mediator"], function(Mediator){
 
 	//elements
 	var element = $("#SpotifyPlayer");
-	var iframe = element.find("iframe");
+	var audioEl = element.find("audio");
 	var selectSong = element.find("#Blocker");
 
-	Mediator.route("dancing/Song/clicked", playSong);
+	Mediator.route("dancing/Song/clicked", getSongJSON);
 
-	function playSong(song){
-		var srcStr = "https://embed.spotify.com/?uri=spotify:track:"+song.uri;
-		iframe.attr("src", srcStr);
+	// Mediator.route("dancing/Song/stop", stopSong);
+
+	function getSongJSON(song){
+		var spotifyJSON = "https://api.spotify.com/v1/tracks/"+song.uri;
+		jQuery.getJSON(spotifyJSON, playSong)
+	}
+
+	function playSong(data){
+		var srcStr = data.preview_url;
+		audioEl.attr("src", srcStr);
+		// audioEl[0].currentTime = 0;
 		selectSong.remove();
 	}
+
+	function stopSong(stop){
+		audioEl.attr("src", null);
+    audioEl[0].pause();
+    audioEl[0].looping = false;
+		console.log('stopped song!');
+	}
+
 })
